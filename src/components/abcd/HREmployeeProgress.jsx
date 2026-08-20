@@ -20,10 +20,10 @@ export const HREmployeeProgress = ({ employeeRecords, works, assignments }) => {
 
   if (employeeIds.length === 0) {
     return (
-      <div style={{ textAlign: 'center', padding: '3rem 1.5rem', backgroundColor: 'var(--bg-warm)', borderRadius: 'var(--radius-lg)', border: '1px dashed var(--border-light)' }}>
-        <Users size={40} color="var(--text-muted)" style={{ marginBottom: '0.75rem' }} />
+      <div style={{ textAlign: 'center', padding: '3rem 1.5rem', backgroundColor: 'var(--jpm-bg)', borderRadius: 'var(--radius-lg)', border: '1px dashed var(--jpm-border-dark)' }}>
+        <Users size={40} color="var(--jpm-muted)" style={{ marginBottom: '0.75rem' }} />
         <h3 style={{ fontSize: '1.1rem', color: 'var(--jpm-text)', marginBottom: '0.25rem' }}>No Employee Progress</h3>
-        <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)' }}>Employee ABCD progress will appear here once works are assigned.</p>
+        <p style={{ fontSize: '0.875rem', color: 'var(--jpm-text-secondary)' }}>Employee ABCD progress will appear here once works are assigned.</p>
       </div>
     );
   }
@@ -48,42 +48,44 @@ export const HREmployeeProgress = ({ employeeRecords, works, assignments }) => {
             <div className="hr-progress-employee-header">
               <div className="hr-verif-avatar">{empInit}</div>
               <div style={{ flex: 1 }}>
-                <div style={{ fontWeight: 700, color: 'var(--jpm-text)', fontSize: '1rem' }}>{empName}</div>
-                <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>{empDept}</div>
+                <div style={{ fontWeight: 800, color: 'var(--jpm-text)', fontSize: '1.1rem' }}>{empName}</div>
+                <div style={{ fontSize: '0.825rem', color: 'var(--jpm-text-secondary)' }}>{empDept}</div>
               </div>
-              <span style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--jpm-primary)' }}>{overallPercent}%</span>
+              <span style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--jpm-primary)' }}>{overallPercent}%</span>
             </div>
 
-            {records.map(record => {
-              const work = works.find(w => w.id === record.workId);
-              const percent = abcdService.getCompletionPercent(record);
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+              {records.map(record => {
+                const work = works.find(w => w.id === record.workId);
+                const percent = abcdService.getCompletionPercent(record);
 
-              return (
-                <div key={record.id} className="hr-progress-work-row">
-                  <span className="hr-progress-work-name">{work?.name || 'Work'}</span>
-                  <div className="hr-progress-mini-track">
-                    {STAGE_KEYS.map(k => {
-                      const s = record.stages[k]?.status || STAGE_STATUS.LOCKED;
-                      let cls = '';
-                      if (s === STAGE_STATUS.COMPLETED) cls = 'completed';
-                      else if (s === STAGE_STATUS.CURRENT) cls = 'current';
-                      else if (s === STAGE_STATUS.PENDING_HR_VERIFICATION) cls = 'pending';
-                      else if (s === STAGE_STATUS.NEEDS_REVISION) cls = 'revision';
+                return (
+                  <div key={record.id} className="hr-progress-work-row">
+                    <span className="hr-progress-work-name">{work?.name || 'Work'}</span>
+                    <div className="hr-progress-mini-track" style={{ display: 'flex', alignItems: 'center', gap: '6px', flexDirection: 'row' }}>
+                      {STAGE_KEYS.map(k => {
+                        const s = record.stages[k]?.status || STAGE_STATUS.LOCKED;
+                        let cls = '';
+                        if (s === STAGE_STATUS.COMPLETED) cls = 'completed';
+                        else if (s === STAGE_STATUS.CURRENT) cls = 'current';
+                        else if (s === STAGE_STATUS.PENDING_HR_VERIFICATION) cls = 'pending';
+                        else if (s === STAGE_STATUS.NEEDS_REVISION) cls = 'revision';
 
-                      return (
-                        <div key={k} className={`mini-abcd-node ${cls}`} style={{ width: '24px', height: '24px', fontSize: '0.6rem' }}>
-                          {s === STAGE_STATUS.COMPLETED ? '✓' : k}
-                        </div>
-                      );
-                    })}
+                        return (
+                          <div key={k} className={`mini-abcd-node ${cls}`} style={{ width: '28px', height: '28px', fontSize: '0.75rem' }}>
+                            {s === STAGE_STATUS.COMPLETED ? '✓' : k}
+                          </div>
+                        );
+                      })}
+                    </div>
+                    <span className="hr-progress-percent">{percent}%</span>
                   </div>
-                  <span className="hr-progress-percent">{percent}%</span>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
 
             {/* Overall progress bar */}
-            <div style={{ marginTop: '0.75rem' }}>
+            <div style={{ marginTop: '0.5rem' }}>
               <div className="emp-progress-bar-track">
                 <div className="emp-progress-bar-fill" style={{ width: `${overallPercent}%` }} />
               </div>

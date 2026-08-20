@@ -469,6 +469,65 @@
   gap: 1.15rem;
 }
 
+/* HR Employee Progress Overview */
+.hr-progress-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.hr-progress-employee-card {
+  background: var(--jpm-surface-solid);
+  border: 1px solid var(--jpm-border-dark);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 2rem;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.hr-progress-employee-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--jpm-border-dark);
+}
+
+.hr-progress-work-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  padding: 0.85rem 1.15rem;
+  background: var(--jpm-bg);
+  border: 1px solid var(--jpm-border-dark);
+  border-radius: var(--radius-md);
+}
+
+.hr-progress-work-name {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--jpm-text);
+  flex: 1;
+}
+
+.hr-progress-mini-track {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  flex-direction: row !important;
+}
+
+.hr-progress-percent {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--jpm-primary);
+  min-width: 42px;
+  text-align: right;
+}
+
 /* Horizontal Mini ABCD Track (A ━ B ━ C ━ D) */
 .mini-abcd-track {
   display: flex;
