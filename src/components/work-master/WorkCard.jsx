@@ -3,7 +3,7 @@ import { Eye, Edit3, Video, FileText, CheckCircle2, Power, Layers } from 'lucide
 import { WORK_LEVELS } from '../../modules/work-master/workMasterData';
 
 export const WorkCard = ({ work, onPreview, onEdit, onToggleStatus }) => {
-  const levelInfo = WORK_LEVELS.find(l => l.id === work.level) || { label: work.level, badgeColor: '#0A2240' };
+  const levelInfo = WORK_LEVELS.find(l => l.id === work.level) || { label: work.level, badgeColor: 'var(--jpm-primary)' };
   const isActive = work.status === 'ACTIVE';
 
   return (
@@ -27,14 +27,14 @@ export const WorkCard = ({ work, onPreview, onEdit, onToggleStatus }) => {
         <div className="work-resources-row">
           {work.trainingVideo && (
             <span className="resource-indicator">
-              <Video size={14} color="#0A2240" />
+              <Video size={14} color="var(--jpm-primary)" />
               <span>Video Available ({work.trainingVideo.duration})</span>
             </span>
           )}
 
           {work.documents && work.documents.length > 0 && (
             <span className="resource-indicator">
-              <FileText size={14} color="#C5A059" />
+              <FileText size={14} color="var(--jpm-gold)" />
               <span>{work.documents.length} Learning Document{work.documents.length > 1 ? 's' : ''}</span>
             </span>
           )}

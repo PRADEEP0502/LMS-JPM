@@ -20,7 +20,7 @@ export const HRAbcdVerification = ({ pendingItems, works, onReview }) => {
       {(!pendingItems || pendingItems.length === 0) ? (
         <div className="hr-verif-empty">
           <CheckCircle2 size={40} color="var(--success-text)" style={{ marginBottom: '0.75rem' }} />
-          <h3 style={{ fontSize: '1.1rem', color: 'var(--jpm-navy)', marginBottom: '0.25rem' }}>All Caught Up</h3>
+          <h3 style={{ fontSize: '1.1rem', color: 'var(--jpm-text)', marginBottom: '0.25rem' }}>All Caught Up</h3>
           <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)' }}>All verifications are up to date. No pending reviews.</p>
         </div>
       ) : (

@@ -22,7 +22,7 @@ export const HREmployeeProgress = ({ employeeRecords, works, assignments }) => {
     return (
       <div style={{ textAlign: 'center', padding: '3rem 1.5rem', backgroundColor: 'var(--bg-warm)', borderRadius: 'var(--radius-lg)', border: '1px dashed var(--border-light)' }}>
         <Users size={40} color="var(--text-muted)" style={{ marginBottom: '0.75rem' }} />
-        <h3 style={{ fontSize: '1.1rem', color: 'var(--jpm-navy)', marginBottom: '0.25rem' }}>No Employee Progress</h3>
+        <h3 style={{ fontSize: '1.1rem', color: 'var(--jpm-text)', marginBottom: '0.25rem' }}>No Employee Progress</h3>
         <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)' }}>Employee ABCD progress will appear here once works are assigned.</p>
       </div>
     );
@@ -48,10 +48,10 @@ export const HREmployeeProgress = ({ employeeRecords, works, assignments }) => {
             <div className="hr-progress-employee-header">
               <div className="hr-verif-avatar">{empInit}</div>
               <div style={{ flex: 1 }}>
-                <div style={{ fontWeight: 700, color: 'var(--jpm-navy)', fontSize: '1rem' }}>{empName}</div>
+                <div style={{ fontWeight: 700, color: 'var(--jpm-text)', fontSize: '1rem' }}>{empName}</div>
                 <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>{empDept}</div>
               </div>
-              <span style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--jpm-navy)' }}>{overallPercent}%</span>
+              <span style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--jpm-primary)' }}>{overallPercent}%</span>
             </div>
 
             {records.map(record => {
