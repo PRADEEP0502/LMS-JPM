@@ -133,8 +133,8 @@ export const StageDetailCard = ({
 
       {/* Stage Action Bar */}
       <div className="stage-action-bar">
-        <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.825rem', color: 'var(--text-secondary)' }}>
-          <ShieldCheck size={16} color="#C5A059" />
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.85rem', fontWeight: 600, color: 'var(--jpm-text-secondary)' }}>
+          <ShieldCheck size={18} color="var(--jpm-gold)" />
           <span>Junior Processing Mill Onboarding Verification</span>
         </div>
 
@@ -148,7 +148,7 @@ export const StageDetailCard = ({
         {isCompleted && (
           <button
             className="complete-step-btn"
-            style={{ backgroundColor: 'var(--jpm-gold)', color: 'var(--jpm-navy-dark)' }}
+            style={{ backgroundColor: 'var(--jpm-primary-soft)', color: 'var(--jpm-primary)' }}
             onClick={() => onCompleteStage(stageIndex)}
           >
             <span>Review Next Active Step</span>

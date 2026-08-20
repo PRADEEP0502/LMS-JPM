@@ -443,6 +443,17 @@
   box-shadow: 0 12px 28px rgba(91, 60, 196, 0.35);
 }
 
+.stage-action-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--jpm-border-dark);
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
 /* Completion Screen */
 .completion-card {
   max-width: 700px;
