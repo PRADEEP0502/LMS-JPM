@@ -1,7 +1,7 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { JpmLogo } from '../components/common/JpmLogo';
-import { LogOut, BookOpen, ShieldCheck, Users } from 'lucide-react';
+import { Sidebar } from '../components/common/Sidebar';
+import { LogOut, BookOpen, ShieldCheck, Users, Bell } from 'lucide-react';
 import { WorkMasterList } from '../components/work-master/WorkMasterList';
 import { HRAbcdVerification } from '../components/abcd/HRAbcdVerification';
 import { HRReviewModal } from '../components/abcd/HRReviewModal';
@@ -12,12 +12,6 @@ import { assignmentService } from '../modules/assignment/assignmentService';
 import { notificationService } from '../modules/notification/notificationService';
 import '../styles/placeholders.css';
 import '../styles/abcd.css';
-
-const NAV_TABS = [
-  { id: 'work-master', label: 'Work Master', icon: BookOpen },
-  { id: 'abcd-verification', label: 'ABCD Verification', icon: ShieldCheck },
-  { id: 'employee-progress', label: 'Employee Progress', icon: Users },
-];
 
 export const HRHome = () => {
   const { user, logout } = useAuth();
@@ -72,75 +66,36 @@ export const HRHome = () => {
   const reviewWork = reviewItem ? works.find(w => w.id === reviewItem.workId) : null;
 
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: 'var(--bg-primary)' }}>
-      {/* Zentra Floating Header */}
-      <header className="app-header">
-        <div className="header-brand">
-          <JpmLogo size={32} variant="dark" />
-          <div className="header-title">jpm <span>lms</span></div>
-        </div>
+    <div className="app-layout-container">
+      {/* Soft Floating Sidebar */}
+      <Sidebar
+        activeTab={activeTab}
+        onSelectTab={(tabId) => setActiveTab(tabId)}
+        role="HR"
+      />
 
-        {/* Zentra Center Pill Navigation Bar */}
-        <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
-          {NAV_TABS.map(tab => {
-            const TabIcon = tab.icon;
-            const isActive = activeTab === tab.id;
-            const pendingCount = tab.id === 'abcd-verification' ? pendingItems.length : 0;
-            return (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                style={{
-                  padding: '0.6rem 1.25rem',
-                  borderRadius: 'var(--radius-full)',
-                  fontSize: '0.85rem',
-                  fontWeight: isActive ? 700 : 600,
-                  backgroundColor: isActive ? '#18181B' : 'transparent',
-                  color: isActive ? '#FFFFFF' : '#52525B',
-                  border: 'none',
-                  cursor: 'pointer',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  boxShadow: isActive ? '0 4px 12px rgba(24, 24, 27, 0.25)' : 'none',
-                  transition: 'all 200ms ease',
-                  position: 'relative'
-                }}
-              >
-                <TabIcon size={16} color={isActive ? '#C5A059' : '#71717A'} />
-                <span>{tab.label}</span>
-                {pendingCount > 0 && (
-                  <span style={{
-                    position: 'absolute', top: '-2px', right: '-2px',
-                    width: '18px', height: '18px', borderRadius: '50%',
-                    backgroundColor: '#DC2626', color: '#FFFFFF',
-                    fontSize: '0.6rem', fontWeight: 800,
-                    display: 'flex', alignItems: 'center', justifyContent: 'center'
-                  }}>{pendingCount}</span>
-                )}
-              </button>
-            );
-          })}
-        </div>
-
-        <div className="header-user-section">
-          <div className="user-profile-summary">
-            <div className="user-avatar" style={{ backgroundColor: '#18181B', color: '#C5A059' }}>
-              {user?.avatarInitials || 'HR'}
-            </div>
-            <div className="user-info-text">
-              <span className="user-name">{user?.name || 'HR Manager'}</span>
-              <span className="user-role-badge badge-hr">HR Admin</span>
+      {/* Main Content Area */}
+      <main className="app-main-content">
+        {/* Minimal Floating Top Bar */}
+        <header className="jpm-topbar">
+          <div className="topbar-left">JPM LMS HR Administration</div>
+          <div className="topbar-right">
+            <button className="topbar-icon-btn" title="Notifications" onClick={() => alert('HR Notifications up to date.')}>
+              <Bell size={16} />
+            </button>
+            <div className="topbar-user-pill">
+              <div className="topbar-avatar" style={{ backgroundColor: '#DB2777' }}>
+                {user?.avatarInitials || 'SJ'}
+              </div>
+              <div className="topbar-user-info">
+                <span className="topbar-user-name">{user?.name || 'Sarah Jenkins'}</span>
+                <span className="topbar-user-sub">HR Administrator</span>
+              </div>
             </div>
           </div>
-          <button className="logout-btn" onClick={logout} title="Sign Out">
-            <LogOut size={16} /><span>Sign Out</span>
-          </button>
-        </div>
-      </header>
+        </header>
 
-      {/* Content */}
-      <main className="dashboard-container">
+        {/* Content Tabs */}
         {activeTab === 'work-master' && <WorkMasterList />}
         {activeTab === 'abcd-verification' && (
           <HRAbcdVerification

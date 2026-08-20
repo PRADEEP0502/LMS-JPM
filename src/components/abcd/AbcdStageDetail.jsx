@@ -16,7 +16,7 @@ export const AbcdStageDetail = ({ stageKey, stageData, workData, onSubmit, abcdR
     return (
       <div className="abcd-stage-detail">
         <div className="abcd-detail-header">
-          <div className="abcd-detail-icon"><Lock size={22} /></div>
+          <div className="abcd-detail-icon" style={{ backgroundColor: 'var(--jpm-muted)' }}><Lock size={22} /></div>
           <div>
             <h3 className="abcd-detail-title">{meta.fullLabel}</h3>
             <p className="abcd-detail-desc">{meta.description}</p>
@@ -33,7 +33,7 @@ export const AbcdStageDetail = ({ stageKey, stageData, workData, onSubmit, abcdR
   // COMPLETED state
   if (status === STAGE_STATUS.COMPLETED) {
     return (
-      <div className="abcd-stage-detail">
+      <div className="abcd-stage-detail" style={{ borderTopColor: 'var(--success-text)' }}>
         <div className="abcd-detail-header">
           <div className="abcd-detail-icon" style={{ backgroundColor: 'var(--success-text)' }}><CheckCircle2 size={22} /></div>
           <div>
@@ -43,9 +43,9 @@ export const AbcdStageDetail = ({ stageKey, stageData, workData, onSubmit, abcdR
           <span className="abcd-status-badge badge-completed" style={{ marginLeft: 'auto' }}><CheckCircle2 size={14} /> Completed</span>
         </div>
         <div className="abcd-completed-info">
-          <p><strong>Verified:</strong> {formatDate(stageData.verifiedAt)}</p>
+          <p><strong>Verified Date:</strong> {formatDate(stageData.verifiedAt)}</p>
           {stageData.remarks && <p><strong>HR Remarks:</strong> {stageData.remarks}</p>}
-          {stageData.rating && <p><strong>Rating:</strong> {stageData.rating}/5</p>}
+          {stageData.rating && <p><strong>Performance Rating:</strong> {stageData.rating}/5 Stars</p>}
         </div>
       </div>
     );
@@ -54,21 +54,21 @@ export const AbcdStageDetail = ({ stageKey, stageData, workData, onSubmit, abcdR
   // PENDING_HR_VERIFICATION state
   if (status === STAGE_STATUS.PENDING_HR_VERIFICATION) {
     return (
-      <div className="abcd-stage-detail">
+      <div className="abcd-stage-detail" style={{ borderTopColor: 'var(--warning-text)' }}>
         <div className="abcd-detail-header">
-          <div className="abcd-detail-icon" style={{ backgroundColor: '#F59E0B' }}><Clock size={22} /></div>
+          <div className="abcd-detail-icon" style={{ backgroundColor: 'var(--warning-text)' }}><Clock size={22} /></div>
           <div>
             <h3 className="abcd-detail-title">{meta.fullLabel}</h3>
             <p className="abcd-detail-desc">{meta.description}</p>
           </div>
-          <span className="abcd-status-badge badge-pending" style={{ marginLeft: 'auto' }}><Clock size={14} /> Awaiting HR Review</span>
+          <span className="abcd-status-badge badge-pending" style={{ marginLeft: 'auto' }}><Clock size={14} /> Awaiting HR Audit</span>
         </div>
         <div className="abcd-resource-card">
-          <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>
-            Your submission is being reviewed by HR. You will be notified once the review is complete.
+          <p style={{ fontSize: '0.9rem', color: 'var(--jpm-text-secondary)' }}>
+            Your submission is being reviewed by HR. You will receive a notification once verified.
           </p>
           {stageData.submittedAt && (
-            <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginTop: '0.5rem' }}>
+            <p style={{ fontSize: '0.8rem', color: 'var(--jpm-muted)', marginTop: '0.5rem' }}>
               Submitted: {formatDate(stageData.submittedAt)}
             </p>
           )}
@@ -101,7 +101,7 @@ export const AbcdStageDetail = ({ stageKey, stageData, workData, onSubmit, abcdR
       {/* Revision remarks */}
       {showRevision && stageData.remarks && (
         <div className="abcd-revision-card">
-          <h4><AlertCircle size={16} /> HR Feedback</h4>
+          <h4><AlertCircle size={16} /> HR Feedback & Action Required</h4>
           <p>{stageData.remarks}</p>
         </div>
       )}
@@ -112,26 +112,26 @@ export const AbcdStageDetail = ({ stageKey, stageData, workData, onSubmit, abcdR
           <>
             {workData.trainingVideo && (
               <div className="abcd-resource-card">
-                <div className="abcd-resource-title"><Video size={16} /> Training Video</div>
+                <div className="abcd-resource-title"><Video size={16} color="var(--jpm-primary)" /> Training Masterclass Video</div>
                 <div style={{ backgroundColor: '#000', borderRadius: 'var(--radius-md)', overflow: 'hidden' }}>
                   <video controls style={{ width: '100%', maxHeight: '300px', display: 'block' }} src={workData.trainingVideo.url}>
-                    Your browser does not support video.
+                    Your browser does not support video playback.
                   </video>
                 </div>
-                <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginTop: '0.5rem' }}>
-                  {workData.trainingVideo.name} · {workData.trainingVideo.duration}
+                <p style={{ fontSize: '0.825rem', color: 'var(--jpm-text-secondary)', marginTop: '0.5rem' }}>
+                  {workData.trainingVideo.name} &bull; {workData.trainingVideo.duration}
                 </p>
               </div>
             )}
 
             {workData.documents?.length > 0 && (
               <div className="abcd-resource-card">
-                <div className="abcd-resource-title"><FileText size={16} /> SOP & Documents</div>
+                <div className="abcd-resource-title"><FileText size={16} color="var(--jpm-primary)" /> SOP & Policy Documentation</div>
                 {workData.documents.map(doc => (
-                  <div key={doc.id} style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '0.5rem 0', borderBottom: '1px solid var(--border-light)' }}>
-                    <FileText size={16} color="var(--jpm-navy)" />
-                    <span style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--jpm-navy)' }}>{doc.name}</span>
-                    <span style={{ fontSize: '0.725rem', color: 'var(--text-muted)', marginLeft: 'auto' }}>{doc.type} · {doc.size}</span>
+                  <div key={doc.id} style={{ display: 'flex', alignItems: 'center', gap: '10px', padding: '0.6rem 0', borderBottom: '1px solid var(--jpm-border-dark)' }}>
+                    <FileText size={16} color="var(--jpm-primary)" />
+                    <span style={{ fontSize: '0.875rem', fontWeight: 700, color: 'var(--jpm-text)' }}>{doc.name}</span>
+                    <span style={{ fontSize: '0.75rem', color: 'var(--jpm-muted)', marginLeft: 'auto' }}>{doc.type} &bull; {doc.size}</span>
                   </div>
                 ))}
               </div>
@@ -139,11 +139,11 @@ export const AbcdStageDetail = ({ stageKey, stageData, workData, onSubmit, abcdR
 
             {workData.learningPoints?.length > 0 && (
               <div className="abcd-resource-card">
-                <div className="abcd-resource-title"><CheckCircle2 size={16} /> What You Will Learn</div>
+                <div className="abcd-resource-title"><CheckCircle2 size={16} color="var(--jpm-primary)" /> Key Learning Outcomes</div>
                 {workData.learningPoints.map((pt, i) => (
-                  <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', padding: '0.35rem 0' }}>
-                    <CheckCircle2 size={16} color="var(--jpm-gold)" style={{ flexShrink: 0, marginTop: '2px' }} />
-                    <span style={{ fontSize: '0.85rem', color: 'var(--text-main)' }}>{pt}</span>
+                  <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', padding: '0.4rem 0' }}>
+                    <CheckCircle2 size={16} color="var(--jpm-primary)" style={{ flexShrink: 0, marginTop: '2px' }} />
+                    <span style={{ fontSize: '0.875rem', color: 'var(--jpm-text)' }}>{pt}</span>
                   </div>
                 ))}
               </div>
@@ -154,23 +154,23 @@ export const AbcdStageDetail = ({ stageKey, stageData, workData, onSubmit, abcdR
         {/* Stage B — Practical info */}
         {stageKey === 'B' && workData?.practical && (
           <div className="abcd-resource-card">
-            <div className="abcd-resource-title"><Layers size={16} /> Practical Training</div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '1rem' }}>
+            <div className="abcd-resource-title"><Layers size={16} color="var(--jpm-primary)" /> Practical Training Requirements</div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '1rem', marginBottom: '1rem' }}>
               <div>
-                <div style={{ fontSize: '0.725rem', fontWeight: 700, textTransform: 'uppercase', color: 'var(--text-muted)' }}>Duration</div>
-                <div style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--jpm-navy)' }}>{workData.practical.durationDays} Days</div>
+                <div style={{ fontSize: '0.725rem', fontWeight: 800, textTransform: 'uppercase', color: 'var(--jpm-muted)' }}>Duration</div>
+                <div style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--jpm-text)' }}>{workData.practical.durationDays} Days</div>
               </div>
               {workData.practical.accuracyTarget && (
                 <div>
-                  <div style={{ fontSize: '0.725rem', fontWeight: 700, textTransform: 'uppercase', color: 'var(--text-muted)' }}>Accuracy Target</div>
-                  <div style={{ fontSize: '1.1rem', fontWeight: 700, color: 'var(--jpm-navy)' }}>{workData.practical.accuracyTarget}</div>
+                  <div style={{ fontSize: '0.725rem', fontWeight: 800, textTransform: 'uppercase', color: 'var(--jpm-muted)' }}>Accuracy Target</div>
+                  <div style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--jpm-primary)' }}>{workData.practical.accuracyTarget}</div>
                 </div>
               )}
             </div>
-            <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', marginTop: '0.75rem', lineHeight: 1.5 }}>
+            <p style={{ fontSize: '0.9rem', color: 'var(--jpm-text-secondary)', lineHeight: 1.5, marginBottom: '0.5rem' }}>
               <strong>Instructions:</strong> {workData.practical.instructions}
             </p>
-            <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginTop: '0.5rem' }}>
+            <p style={{ fontSize: '0.9rem', color: 'var(--jpm-text-secondary)' }}>
               <strong>Expected Outcome:</strong> {workData.practical.expectedOutcome}
             </p>
           </div>
@@ -179,9 +179,9 @@ export const AbcdStageDetail = ({ stageKey, stageData, workData, onSubmit, abcdR
         {/* Stage C — Can Perform confirmation */}
         {stageKey === 'C' && (
           <div className="abcd-resource-card">
-            <div className="abcd-resource-title"><UserCheck size={16} /> Capability Confirmation</div>
-            <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', marginBottom: '1rem' }}>
-              Provide any notes or evidence confirming your ability to independently perform this work.
+            <div className="abcd-resource-title"><UserCheck size={16} color="var(--jpm-primary)" /> Independent Capability Confirmation</div>
+            <p style={{ fontSize: '0.9rem', color: 'var(--jpm-text-secondary)', marginBottom: '1rem' }}>
+              Provide any notes or evidence confirming your ability to independently perform this work without supervision.
             </p>
             <textarea
               className="hr-review-textarea"
@@ -196,9 +196,9 @@ export const AbcdStageDetail = ({ stageKey, stageData, workData, onSubmit, abcdR
         {/* Stage D — Final submission */}
         {stageKey === 'D' && (
           <div className="abcd-resource-card">
-            <div className="abcd-resource-title"><Award size={16} /> Final Performance Submission</div>
-            <p style={{ fontSize: '0.875rem', color: 'var(--text-secondary)', marginBottom: '1rem' }}>
-              Submit for final HR performance evaluation. Your complete ABCD journey will be reviewed.
+            <div className="abcd-resource-title"><Award size={16} color="var(--jpm-primary)" /> Final Performance Entitlement Review</div>
+            <p style={{ fontSize: '0.9rem', color: 'var(--jpm-text-secondary)', marginBottom: '1rem' }}>
+              Submit for final HR performance evaluation. Your complete A&rarr;B&rarr;C&rarr;D journey will be audited.
             </p>
             <textarea
               className="hr-review-textarea"

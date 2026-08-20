@@ -10,9 +10,10 @@ html, body {
   min-height: 100vh;
   width: 100%;
   font-family: var(--font-family-sans);
-  background: var(--bg-gradient-mesh);
+  background-color: var(--jpm-bg);
+  background: var(--jpm-bg-gradient);
   background-attachment: fixed;
-  color: var(--text-main);
+  color: var(--jpm-text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -25,7 +26,7 @@ html, body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-family-heading);
-  color: var(--text-main);
+  color: var(--jpm-text);
   letter-spacing: -0.02em;
 }
 
@@ -41,7 +42,7 @@ input, textarea, select {
 }
 
 a {
-  color: var(--text-main);
+  color: var(--jpm-primary);
   text-decoration: none;
 }
 
@@ -49,23 +50,45 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Glowing 3D Orb Accent element */
-.sense-orb {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  background: var(--gradient-orb);
-  box-shadow: 0 10px 24px rgba(255, 94, 126, 0.4);
-  display: inline-block;
-  flex-shrink: 0;
+/* Glass Utility Classes */
+.glass-panel {
+  background: var(--jpm-surface);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--jpm-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-soft);
 }
 
-.sense-orb-sm {
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  background: var(--gradient-orb);
-  box-shadow: 0 4px 12px rgba(255, 94, 126, 0.3);
-  display: inline-block;
-  flex-shrink: 0;
+.glass-card {
+  background: var(--jpm-surface-solid);
+  border: 1px solid var(--jpm-border-dark);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  transition: all var(--transition-normal);
+}
+
+.glass-card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+}
+
+.jpm-badge-gold {
+  background-color: var(--jpm-gold-soft);
+  color: var(--jpm-gold);
+  border: 1px solid var(--jpm-gold);
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  padding: 4px 12px;
+  font-size: 0.75rem;
+}
+
+.jpm-badge-purple {
+  background-color: var(--jpm-primary-soft);
+  color: var(--jpm-primary);
+  border: 1px solid rgba(91, 60, 196, 0.2);
+  border-radius: var(--radius-full);
+  font-weight: 700;
+  padding: 4px 12px;
+  font-size: 0.75rem;
 }

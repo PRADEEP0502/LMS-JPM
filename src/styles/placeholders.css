@@ -1,236 +1,210 @@
-/* Sense UI Theme — Header & Layout Styles */
+/* ============================================
+   JPM LMS — SOFT GLASS LAYOUT, SIDEBAR & TOPBAR
+   ============================================ */
 
-.app-header {
-  background: var(--bg-surface);
+/* Main Page Container with Sidebar Layout */
+.app-layout-container {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  padding: 1.5rem;
+  gap: 1.75rem;
+}
+
+/* Floating Soft Sidebar (#9 Requirement) */
+.jpm-sidebar {
+  width: 260px;
+  background: var(--jpm-surface);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
-  color: var(--text-main);
-  padding: 0.85rem 2.5rem;
+  border: 1px solid var(--jpm-border);
+  border-radius: var(--radius-lg);
+  padding: 2rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-soft);
+  position: sticky;
+  top: 1.5rem;
+  height: calc(100vh - 3rem);
+  flex-shrink: 0;
+}
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 2.25rem;
+  padding-left: 0.5rem;
+}
+
+.sidebar-brand-text {
+  font-family: var(--font-family-heading);
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--jpm-text);
+  letter-spacing: -0.02em;
+}
+
+.sidebar-brand-text span {
+  color: var(--jpm-primary);
+}
+
+.sidebar-section-label {
+  font-family: var(--font-family-heading);
+  font-size: 0.725rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--jpm-muted);
+  margin-bottom: 0.75rem;
+  padding-left: 0.75rem;
+}
+
+.sidebar-nav,
+.sidebar-footer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.sidebar-nav-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--jpm-text-secondary);
+  transition: all var(--transition-fast);
+  text-align: left;
+  border: 1px solid transparent;
+}
+
+.sidebar-nav-btn:hover {
+  background: rgba(255, 255, 255, 0.6);
+  color: var(--jpm-text);
+}
+
+.sidebar-nav-btn.is-active {
+  background: var(--jpm-primary-soft);
+  color: var(--jpm-primary);
+  font-weight: 700;
+  border-color: rgba(91, 60, 196, 0.15);
+}
+
+.logout-nav-btn:hover {
+  background-color: var(--error-bg);
+  color: var(--error-text);
+}
+
+/* Main Workspace Panel */
+.app-main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  min-width: 0;
+}
+
+/* Minimal Floating Top Bar (#10 Requirement) */
+.jpm-topbar {
+  background: var(--jpm-surface);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--jpm-border);
+  border-radius: var(--radius-lg);
+  padding: 0.85rem 1.75rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid var(--border-glass);
-  box-shadow: var(--shadow-sm);
-  position: sticky;
-  top: 0;
-  z-index: 50;
+  box-shadow: var(--shadow-soft);
 }
 
-.header-brand {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.header-title {
+.topbar-left {
   font-family: var(--font-family-heading);
-  font-size: 1.35rem;
+  font-size: 1.1rem;
   font-weight: 800;
-  color: var(--text-main);
-  letter-spacing: -0.02em;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  color: var(--jpm-text);
 }
 
-.header-title span {
-  color: var(--jpm-gold);
-}
-
-.header-user-section {
+.topbar-right {
   display: flex;
   align-items: center;
   gap: 1.25rem;
 }
 
-.user-profile-summary {
+.topbar-icon-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-full);
+  background: var(--jpm-surface-solid);
+  border: 1px solid var(--jpm-border-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--jpm-text-secondary);
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-soft);
+}
+
+.topbar-icon-btn:hover {
+  color: var(--jpm-primary);
+  transform: translateY(-1px);
+}
+
+.topbar-user-pill {
   display: flex;
   align-items: center;
   gap: 10px;
-  background: rgba(255, 255, 255, 0.8);
+  background: var(--jpm-surface-solid);
   padding: 4px 14px 4px 6px;
   border-radius: var(--radius-full);
-  border: 1px solid var(--border-glass);
-  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--jpm-border-dark);
+  box-shadow: var(--shadow-soft);
 }
 
-.user-avatar {
-  width: 34px;
-  height: 34px;
+.topbar-avatar {
+  width: 32px;
+  height: 32px;
   border-radius: var(--radius-full);
-  background: var(--gradient-orb);
+  background: var(--jpm-primary);
   color: #FFFFFF;
   font-weight: 800;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 10px rgba(255, 94, 126, 0.3);
 }
 
-.user-info-text {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.user-name {
-  font-size: 0.875rem;
-  font-weight: 700;
-  color: var(--text-main);
-}
-
-.user-role-badge {
-  display: inline-block;
-  padding: 2px 10px;
-  border-radius: var(--radius-full);
-  font-size: 0.675rem;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-.badge-employee {
-  background-color: rgba(245, 240, 255, 0.9);
-  color: #7C3AED;
-  border: 1px solid #DDD6FE;
-}
-
-.badge-hr {
-  background-color: rgba(253, 242, 248, 0.9);
-  color: #DB2777;
-  border: 1px solid #FBCFE8;
-}
-
-.badge-md {
-  background-color: rgba(254, 252, 232, 0.9);
-  color: #D97706;
-  border: 1px solid #FDE68A;
-}
-
-.logout-btn {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 0.55rem 1.15rem;
-  background: rgba(255, 255, 255, 0.8);
-  color: var(--text-secondary);
-  border: 1px solid var(--border-glass);
-  border-radius: var(--radius-full);
-  font-size: 0.825rem;
-  font-weight: 700;
-  transition: all var(--transition-fast);
-  box-shadow: var(--shadow-sm);
-}
-
-.logout-btn:hover {
-  background-color: #FFE4E6;
-  border-color: #FECDD3;
-  color: #E11D48;
-}
-
-/* Main Dashboard Body Container */
-.dashboard-container {
-  flex: 1;
-  max-width: 1440px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 2.25rem 2.5rem;
-}
-
-.step-status-banner {
-  background: var(--bg-surface);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--border-glass);
-  border-radius: var(--radius-xl);
-  padding: 1.5rem 2rem;
-  margin-bottom: 2rem;
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  box-shadow: var(--shadow-md);
-}
-
-.banner-icon {
-  color: #FF5E7E;
-  margin-top: 2px;
-}
-
-.banner-content h3 {
-  font-size: 1.05rem;
-  font-weight: 800;
-  color: var(--text-main);
-  margin-bottom: 0.25rem;
-}
-
-.banner-content p {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-  line-height: 1.5;
-}
-
-.placeholder-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 1.5rem;
-}
-
-.placeholder-card {
-  background: var(--bg-surface);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--border-glass);
-  border-radius: var(--radius-xl);
-  padding: 2rem;
-  box-shadow: var(--shadow-md);
+.topbar-user-info {
   display: flex;
   flex-direction: column;
-  gap: 1.15rem;
-  transition: all var(--transition-fast);
 }
 
-.placeholder-card:hover {
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-3px);
-  border-color: #FFFFFF;
-}
-
-.card-header {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-
-.card-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: var(--radius-md);
-  background: var(--bg-subtle);
-  color: var(--text-main);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.card-title {
-  font-size: 1.15rem;
-  font-weight: 800;
-  color: var(--text-main);
-}
-
-.card-desc {
-  font-size: 0.9rem;
-  color: var(--text-secondary);
-  line-height: 1.5;
-}
-
-.card-status-tag {
-  align-self: flex-start;
-  font-size: 0.725rem;
+.topbar-user-name {
+  font-size: 0.85rem;
   font-weight: 700;
-  padding: 4px 14px;
-  background: var(--bg-subtle);
-  color: var(--text-muted);
-  border-radius: var(--radius-full);
+  color: var(--jpm-text);
+  line-height: 1.2;
+}
+
+.topbar-user-sub {
+  font-size: 0.7rem;
+  color: var(--jpm-text-secondary);
+}
+
+/* Responsive Layout */
+@media (max-width: 960px) {
+  .app-layout-container {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .jpm-sidebar {
+    width: 100%;
+    height: auto;
+    position: static;
+  }
 }

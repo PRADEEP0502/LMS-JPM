@@ -12,8 +12,9 @@ import { CompletionScreen } from '../components/onboarding/CompletionScreen';
 import { EmployeeMyWorks } from '../components/abcd/EmployeeMyWorks';
 import { EmployeeWorkDetail } from '../components/abcd/EmployeeWorkDetail';
 import { NotificationBanner } from '../components/common/NotificationBanner';
+import { Sidebar } from '../components/common/Sidebar';
 import { JpmLogo } from '../components/common/JpmLogo';
-import { LogOut, RotateCcw, Briefcase, Search, Bell } from 'lucide-react';
+import { LogOut, RotateCcw, Briefcase, Bell, BookOpen, Video, FileText, ArrowRight } from 'lucide-react';
 import '../styles/placeholders.css';
 import '../styles/onboarding.css';
 import '../styles/abcd.css';
@@ -29,7 +30,8 @@ export const EmployeeHome = () => {
   const [selectedStageIndex, setSelectedStageIndex] = useState(onboardingState.currentStageIndex || 0);
   const [showCompletionModal, setShowCompletionModal] = useState(false);
 
-  // ABCD state
+  // Navigation & ABCD state
+  const [activeSidebarTab, setActiveSidebarTab] = useState('dashboard');
   const [selectedAssignmentId, setSelectedAssignmentId] = useState(null);
   const [refreshKey, setRefreshKey] = useState(0);
   const [notifKey, setNotifKey] = useState(0);
@@ -82,7 +84,10 @@ export const EmployeeHome = () => {
     setNotifKey(k => k + 1);
   };
 
-  const handleSelectWork = (assignmentId) => setSelectedAssignmentId(assignmentId);
+  const handleSelectWork = (assignmentId) => {
+    setSelectedAssignmentId(assignmentId);
+    setActiveSidebarTab('my-works');
+  };
   const handleBackToWorks = () => setSelectedAssignmentId(null);
 
   // VIEW 1: Welcome Screen
@@ -110,7 +115,7 @@ export const EmployeeHome = () => {
         <header className="app-header">
           <div className="header-brand">
             <JpmLogo size={32} />
-            <div className="header-title">jpm <span>lms</span> &bull; Onboarding Journey</div>
+            <div className="header-title">JPM <span>LMS</span> &bull; Onboarding Journey</div>
           </div>
           <div className="header-user-section">
             <div className="user-profile-summary">
@@ -143,44 +148,51 @@ export const EmployeeHome = () => {
     );
   }
 
-  // VIEW 4: Sense Employee Home — My Works + ABCD
+  // VIEW 4: Soft Glass Employee Home — Sidebar + Topbar + Composition
   const selectedAssignment = selectedAssignmentId ? assignments.find(a => a.id === selectedAssignmentId) : null;
   const selectedWork = selectedAssignment ? works.find(w => w.id === selectedAssignment.workId) : null;
   const selectedAbcd = selectedAssignment ? abcdService.getProgress(selectedAssignment.id, empId, selectedAssignment.workId) : null;
 
-  const firstName = (user?.name || 'Employee').split(' ')[0];
+  // Active work for "Current Work" panel
+  const currentAssignment = assignments[0];
+  const currentWorkItem = currentAssignment ? works.find(w => w.id === currentAssignment.workId) : null;
+
+  const firstName = (user?.name || 'Pradeep').split(' ')[0];
 
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-      {/* Sense Header Navbar */}
-      <header className="app-header">
-        <div className="header-brand">
-          <JpmLogo size={32} />
-          <div className="header-title">jpm <span>lms</span></div>
-        </div>
+    <div className="app-layout-container">
+      {/* Soft Floating Sidebar */}
+      <Sidebar
+        activeTab={activeSidebarTab}
+        onSelectTab={(tabId) => {
+          setActiveSidebarTab(tabId);
+          if (tabId === 'dashboard') setSelectedAssignmentId(null);
+        }}
+        role="EMPLOYEE"
+      />
 
-        <div className="header-user-section">
-          <button
-            className="logout-btn"
-            onClick={handleResetOnboarding}
-            style={{ backgroundColor: 'rgba(255, 255, 255, 0.8)' }}
-            title="Re-test Onboarding Flow"
-          >
-            <RotateCcw size={15} /><span>Re-test Onboarding</span>
-          </button>
-
-          <div className="user-profile-summary">
-            <div className="user-avatar">{user?.avatarInitials || 'EP'}</div>
-            <div className="user-info-text">
-              <span className="user-name">{user?.name || 'Employee'}</span>
-              <span className="user-role-badge badge-employee">Employee</span>
+      {/* Main Content Area */}
+      <main className="app-main-content">
+        {/* Minimal Floating Top Bar */}
+        <header className="jpm-topbar">
+          <div className="topbar-left">JPM LMS</div>
+          <div className="topbar-right">
+            <button className="topbar-icon-btn" title="Re-test Onboarding" onClick={handleResetOnboarding}>
+              <RotateCcw size={16} />
+            </button>
+            <button className="topbar-icon-btn" title="Notifications" onClick={() => alert('All notifications up to date.')}>
+              <Bell size={16} />
+            </button>
+            <div className="topbar-user-pill">
+              <div className="topbar-avatar">{user?.avatarInitials || 'JD'}</div>
+              <div className="topbar-user-info">
+                <span className="topbar-user-name">{user?.name || 'Pradeep Kumar'}</span>
+                <span className="topbar-user-sub">{user?.department || 'Data Entry Specialist'}</span>
+              </div>
             </div>
           </div>
-          <button className="logout-btn" onClick={logout} title="Sign Out"><LogOut size={16} /><span>Sign Out</span></button>
-        </div>
-      </header>
+        </header>
 
-      <main className="dashboard-container">
         <NotificationBanner key={notifKey} userId={empId} onDismiss={() => setNotifKey(k => k + 1)} />
 
         {selectedAssignment && selectedWork && selectedAbcd ? (
@@ -195,50 +207,72 @@ export const EmployeeHome = () => {
           />
         ) : (
           <>
-            {/* Sense Hero Card ("Good Morning Andrew, What's on your mind?" style from reference image) */}
-            <div 
-              style={{
-                background: 'var(--bg-surface)',
-                backdropFilter: 'var(--glass-blur)',
-                WebkitBackdropFilter: 'var(--glass-blur)',
-                border: '1px solid var(--border-glass)',
-                borderRadius: 'var(--radius-xl)',
-                padding: '3rem 2.5rem',
-                textAlign: 'center',
-                boxShadow: 'var(--shadow-lg)',
-                marginBottom: '2.25rem',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'center'
-              }}
-            >
-              <div className="sense-orb" style={{ marginBottom: '1.25rem' }} />
-              <h1 style={{ fontSize: '2.5rem', fontWeight: 800, color: 'var(--text-main)', letterSpacing: '-0.02em', lineHeight: 1.25, maxWidth: '640px' }}>
-                Good Day <strong>{firstName}</strong>, what’s on your learning pathway?
+            {/* Greeting Header */}
+            <div style={{ marginBottom: '0.5rem' }}>
+              <h1 style={{ fontSize: '2.2rem', fontWeight: 800, color: 'var(--jpm-text)', letterSpacing: '-0.02em' }}>
+                Good Morning, {firstName} 👋
               </h1>
-              <p style={{ fontSize: '1rem', color: 'var(--text-secondary)', marginTop: '0.75rem', maxWidth: '520px' }}>
-                Track your assigned works, execute practical training, and complete your ABCD stage entitlement verifications.
+              <p style={{ fontSize: '1rem', color: 'var(--jpm-text-secondary)', marginTop: '4px' }}>
+                Continue your JPM learning journey
               </p>
             </div>
 
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.5rem' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <Briefcase size={22} color="var(--text-main)" />
-                <h2 style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--text-main)' }}>Assigned Learning Pathways</h2>
-              </div>
-              <span style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--text-secondary)', backgroundColor: 'rgba(255,255,255,0.8)', padding: '6px 16px', borderRadius: '9999px', border: '1px solid var(--border-glass)' }}>
-                {assignments.length} Active Works
-              </span>
-            </div>
+            {/* Current Work Featured Panel (Requirement #11) */}
+            {currentWorkItem && (
+              <div className="glass-panel" style={{ padding: '2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1.5rem' }}>
+                <div>
+                  <div className="jpm-badge-purple" style={{ marginBottom: '0.65rem', display: 'inline-block' }}>CURRENT WORK</div>
+                  <h2 style={{ fontSize: '1.5rem', fontWeight: 800, color: 'var(--jpm-text)', marginBottom: '0.35rem' }}>
+                    {currentWorkItem.name}
+                  </h2>
+                  <p style={{ fontSize: '0.9rem', color: 'var(--jpm-text-secondary)', maxWidth: '520px', lineHeight: 1.5 }}>
+                    {currentWorkItem.shortDescription}
+                  </p>
+                  <div style={{ display: 'flex', gap: '12px', marginTop: '1rem' }}>
+                    {currentWorkItem.trainingVideo && (
+                      <span className="jpm-badge-gold" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                        <Video size={14} /> Training Video
+                      </span>
+                    )}
+                    {currentWorkItem.documents?.length > 0 && (
+                      <span className="jpm-badge-gold" style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}>
+                        <FileText size={14} /> {currentWorkItem.documents.length} SOPs
+                      </span>
+                    )}
+                  </div>
+                </div>
 
-            <EmployeeMyWorks
-              key={refreshKey}
-              assignments={assignments}
-              works={works}
-              abcdRecords={abcdRecords}
-              onSelectWork={handleSelectWork}
-            />
+                <button 
+                  className="submit-btn" 
+                  style={{ width: 'auto', padding: '0.85rem 1.85rem', borderRadius: 'var(--radius-sm)' }}
+                  onClick={() => handleSelectWork(currentAssignment.id)}
+                >
+                  <span>Continue Learning</span>
+                  <ArrowRight size={18} />
+                </button>
+              </div>
+            )}
+
+            {/* My Works Pathways Composition */}
+            <div style={{ marginTop: '1rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.25rem' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                  <BookOpen size={20} color="var(--jpm-primary)" />
+                  <h2 style={{ fontSize: '1.35rem', fontWeight: 800, color: 'var(--jpm-text)' }}>My Learning Pathways</h2>
+                </div>
+                <span style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--jpm-text-secondary)' }}>
+                  {assignments.length} Active Works
+                </span>
+              </div>
+
+              <EmployeeMyWorks
+                key={refreshKey}
+                assignments={assignments}
+                works={works}
+                abcdRecords={abcdRecords}
+                onSelectWork={handleSelectWork}
+              />
+            </div>
           </>
         )}
       </main>

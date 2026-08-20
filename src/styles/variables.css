@@ -1,66 +1,59 @@
+/* ============================================
+   JPM LMS — PREMIUM SOFT GLASS DESIGN SYSTEM
+   ============================================ */
+
 :root {
-  /* JPM Brand Core */
-  --jpm-navy: #0A2240;
-  --jpm-gold: #C5A059;
+  /* Primary Soft Glass Colors */
+  --jpm-bg: #F3F3F1;
+  --jpm-bg-gradient: linear-gradient(135deg, #F3F3F1 0%, #EFEFEF 40%, #F5F2F9 70%, #F2EFF6 100%);
+  --jpm-surface: rgba(255, 255, 255, 0.76);
+  --jpm-surface-solid: #FFFFFF;
+  --jpm-surface-subtle: rgba(246, 245, 248, 0.7);
+  --jpm-dark-panel: #1E1A2B;
 
-  /* Sense Glassmorphic Pastel Palette */
-  --bg-primary: #F4F1F8;
-  --bg-gradient-mesh: linear-gradient(135deg, #FBF6F0 0%, #F5EFFB 40%, #EFE8FA 70%, #F8EBF2 100%);
-  --bg-surface: rgba(255, 255, 255, 0.82);
-  --bg-surface-solid: #FFFFFF;
-  --bg-subtle: rgba(243, 240, 248, 0.7);
-  --bg-pill-active: #FFFFFF;
-  --bg-pill-hover: rgba(255, 255, 255, 0.6);
-  --bg-dark-panel: rgba(30, 27, 38, 0.92);
+  /* Refined JPM Accents */
+  --jpm-primary: #5B3CC4;
+  --jpm-primary-hover: #4C2FB3;
+  --jpm-primary-secondary: #7C5CE6;
+  --jpm-primary-soft: #EDE7FF;
+  --jpm-gold: #C8A96B;
+  --jpm-gold-soft: #FAF4E8;
 
-  /* Text Colors */
-  --text-main: #1F2430;
-  --text-secondary: #656C7D;
-  --text-muted: #9CA3AF;
-  --text-inverse: #FFFFFF;
+  /* Typography & Neutral Colors */
+  --jpm-text: #252525;
+  --jpm-text-secondary: #6B6B6B;
+  --jpm-muted: #999999;
+  --jpm-inverse: #FFFFFF;
 
-  /* Sense Fluid Gradient Banner Cards */
-  --gradient-meditate: linear-gradient(135deg, #FFA07A 0%, #FF78A5 50%, #E066FF 100%);
-  --gradient-music: linear-gradient(135deg, #FFB374 0%, #9BE15D 50%, #00E5A3 100%);
-  --gradient-move: linear-gradient(135deg, #8A7CFB 0%, #D8A5FF 50%, #FFB6E5 100%);
-  --gradient-sleep: linear-gradient(135deg, #74EBD5 0%, #9ACE6A 50%, #D8F2A0 100%);
-  --gradient-orb: radial-gradient(circle at 35% 35%, #FFA585, #FF5E7E 50%, #8E2DE2 100%);
-
-  /* Functional Colors */
-  --border-glass: rgba(255, 255, 255, 0.8);
-  --border-light: rgba(226, 220, 235, 0.6);
-  --border-focus: #9D7BFA;
+  /* Functional Status Colors */
+  --jpm-border: rgba(255, 255, 255, 0.7);
+  --jpm-border-dark: rgba(222, 218, 228, 0.75);
   --error-bg: rgba(254, 242, 242, 0.9);
   --error-text: #E11D48;
   --error-border: #FECDD3;
-  --success-bg: rgba(240, 253, 244, 0.9);
+  --success-bg: rgba(236, 253, 245, 0.9);
   --success-text: #059669;
+  --success-border: #A7F3D0;
   --warning-bg: rgba(254, 252, 232, 0.9);
   --warning-text: #D97706;
   --warning-border: #FDE68A;
-  --revision-bg: rgba(255, 241, 242, 0.9);
-  --revision-text: #E11D48;
 
-  /* Typography */
+  /* Typography Fonts */
   --font-family-sans: 'Inter', system-ui, -apple-system, sans-serif;
   --font-family-heading: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
 
-  /* Sense Soft Floating Glass Shadows */
-  --shadow-sm: 0 4px 12px rgba(180, 160, 210, 0.08);
-  --shadow-md: 0 12px 28px rgba(160, 140, 195, 0.12);
-  --shadow-lg: 0 20px 48px rgba(140, 120, 180, 0.16);
-  --shadow-xl: 0 32px 64px rgba(120, 100, 160, 0.2);
-  --shadow-pill: 0 6px 18px rgba(180, 160, 210, 0.15);
-
-  /* Radius — Sense 32px rounded glass cards */
-  --radius-sm: 12px;
-  --radius-md: 18px;
-  --radius-lg: 24px;
-  --radius-xl: 32px;
+  /* Radius Tokens */
+  --radius-sm: 14px;
+  --radius-md: 20px;
+  --radius-lg: 28px;
+  --radius-xl: 36px;
   --radius-full: 9999px;
 
-  /* Glassmorphism Blur */
-  --glass-blur: blur(24px);
+  /* Glass & Shadows */
+  --shadow-soft: 0 10px 35px rgba(0, 0, 0, 0.05), 0 2px 8px rgba(0, 0, 0, 0.02);
+  --shadow-hover: 0 16px 40px rgba(91, 60, 196, 0.12), 0 4px 12px rgba(0, 0, 0, 0.03);
+  --shadow-card: 0 12px 30px rgba(160, 150, 180, 0.08);
+  --glass-blur: blur(18px);
 
   /* Transitions */
   --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);

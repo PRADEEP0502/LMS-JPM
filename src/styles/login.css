@@ -1,5 +1,5 @@
 /* ============================================
-   Sense UI Theme — Login Page Glassmorphism
+   JPM LMS — PREMIUM SOFT GLASS LOGIN THEME
    ============================================ */
 
 .login-page-container {
@@ -7,27 +7,27 @@
   min-height: 100vh;
   width: 100%;
   padding: 2.5rem;
-  background: var(--bg-gradient-mesh);
+  background: var(--jpm-bg-gradient);
   align-items: center;
   justify-content: center;
   gap: 2rem;
 }
 
-/* Left Sense Visual Panel */
+/* Left Visual Panel */
 .login-visual-panel {
   flex: 1.1;
-  max-width: 620px;
-  min-height: 640px;
-  background: var(--bg-surface);
+  max-width: 600px;
+  min-height: 600px;
+  background: var(--jpm-surface);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--border-glass);
+  border: 1px solid var(--jpm-border);
   border-radius: var(--radius-xl);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 3rem;
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-soft);
   position: relative;
   overflow: hidden;
 }
@@ -39,16 +39,16 @@
 }
 
 .brand-badge {
-  background: rgba(255, 255, 255, 0.7);
-  border: 1px solid var(--border-glass);
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid var(--jpm-border);
   padding: 6px 16px;
   border-radius: var(--radius-full);
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--text-main);
-  box-shadow: var(--shadow-sm);
+  color: var(--jpm-text);
+  box-shadow: var(--shadow-soft);
 }
 
 .visual-content {
@@ -57,51 +57,47 @@
 }
 
 .visual-title {
-  font-size: 2.35rem;
+  font-size: 2.5rem;
   font-weight: 800;
   line-height: 1.25;
-  color: var(--text-main);
+  color: var(--jpm-text);
   margin-bottom: 1rem;
   letter-spacing: -0.02em;
 }
 
 .visual-title span {
-  background: linear-gradient(135deg, #FF5E7E 0%, #8E2DE2 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--jpm-primary);
 }
 
 .visual-description {
-  font-size: 1rem;
+  font-size: 1.05rem;
   line-height: 1.65;
-  color: var(--text-secondary);
+  color: var(--jpm-text-secondary);
 }
 
 .visual-footer {
   font-size: 0.825rem;
-  color: var(--text-muted);
+  color: var(--jpm-muted);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top: 1px solid var(--border-light);
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
   padding-top: 1.25rem;
 }
 
-/* Right Sense Form Panel */
+/* Right Form Panel */
 .login-form-panel {
   flex: 0.9;
-  max-width: 480px;
-  min-height: 640px;
-  background: var(--bg-surface);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--border-glass);
+  max-width: 460px;
+  min-height: 600px;
+  background: var(--jpm-surface-solid);
+  border: 1px solid var(--jpm-border-dark);
   border-radius: var(--radius-xl);
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 3rem 2.5rem;
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-soft);
 }
 
 .login-form-container {
@@ -123,29 +119,29 @@
   font-family: var(--font-family-heading);
   font-size: 1.5rem;
   font-weight: 800;
-  color: var(--text-main);
+  color: var(--jpm-text);
   letter-spacing: -0.02em;
 }
 
 .jpm-logo-tag {
-  color: var(--jpm-gold);
+  color: var(--jpm-primary);
   font-weight: 700;
 }
 
 .login-title {
   font-size: 1.85rem;
   font-weight: 800;
-  color: var(--text-main);
+  color: var(--jpm-text);
   margin-bottom: 0.5rem;
   letter-spacing: -0.02em;
 }
 
 .login-subtitle {
   font-size: 0.925rem;
-  color: var(--text-secondary);
+  color: var(--jpm-text-secondary);
 }
 
-/* Sense Controls */
+/* Inputs & Form Elements */
 .login-form {
   display: flex;
   flex-direction: column;
@@ -161,7 +157,7 @@
 .form-label {
   font-size: 0.85rem;
   font-weight: 700;
-  color: var(--text-main);
+  color: var(--jpm-text);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -177,19 +173,18 @@
   width: 100%;
   padding: 0.9rem 1.15rem 0.9rem 2.75rem;
   font-size: 0.95rem;
-  color: var(--text-main);
-  background: rgba(255, 255, 255, 0.7);
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-full);
+  color: var(--jpm-text);
+  background: var(--jpm-bg);
+  border: 1px solid var(--jpm-border-dark);
+  border-radius: var(--radius-sm);
   transition: all var(--transition-fast);
-  box-shadow: var(--shadow-sm);
 }
 
 .form-input:focus {
   outline: none;
   background: #FFFFFF;
-  border-color: var(--border-focus);
-  box-shadow: 0 0 0 4px rgba(157, 123, 250, 0.15);
+  border-color: var(--jpm-primary);
+  box-shadow: 0 0 0 4px rgba(91, 60, 196, 0.12);
 }
 
 .form-input.has-error {
@@ -200,7 +195,7 @@
 .input-icon-left {
   position: absolute;
   left: 1rem;
-  color: var(--text-muted);
+  color: var(--jpm-muted);
   display: flex;
   align-items: center;
   pointer-events: none;
@@ -210,21 +205,19 @@
   position: absolute;
   right: 0.85rem;
   padding: 0.35rem;
-  color: var(--text-muted);
+  color: var(--jpm-muted);
   border-radius: var(--radius-full);
   display: flex;
   align-items: center;
-  transition: color var(--transition-fast);
 }
 
 .password-toggle-btn:hover {
-  color: var(--text-main);
-  background-color: var(--bg-subtle);
+  color: var(--jpm-text);
 }
 
 .forgot-password-link {
   font-size: 0.825rem;
-  color: var(--text-secondary);
+  color: var(--jpm-text-secondary);
   font-weight: 600;
   background: none;
   border: none;
@@ -232,19 +225,19 @@
 }
 
 .forgot-password-link:hover {
-  color: var(--text-main);
+  color: var(--jpm-primary);
   text-decoration: underline;
 }
 
 .submit-btn {
   width: 100%;
   padding: 1rem;
-  background: var(--bg-dark-panel);
+  background: var(--jpm-primary);
   color: #FFFFFF;
   font-size: 0.95rem;
   font-weight: 700;
-  border-radius: var(--radius-full);
-  box-shadow: var(--shadow-md);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 8px 24px rgba(91, 60, 196, 0.25);
   transition: all var(--transition-fast);
   display: flex;
   align-items: center;
@@ -255,31 +248,18 @@
 }
 
 .submit-btn:hover {
-  background: #000000;
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
-}
-
-/* Error Banner */
-.error-banner {
-  background-color: var(--error-bg);
-  border: 1px solid var(--error-border);
-  color: var(--error-text);
-  padding: 0.85rem 1.15rem;
-  border-radius: var(--radius-md);
-  font-size: 0.85rem;
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  background: var(--jpm-primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px rgba(91, 60, 196, 0.35);
 }
 
 /* Demo Accounts Chips */
 .demo-accounts-card {
   margin-top: 2rem;
   padding: 1.25rem;
-  background: rgba(255, 255, 255, 0.6);
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-lg);
+  background: var(--jpm-bg);
+  border: 1px solid var(--jpm-border-dark);
+  border-radius: var(--radius-md);
 }
 
 .demo-title {
@@ -287,7 +267,7 @@
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--text-muted);
+  color: var(--jpm-muted);
   margin-bottom: 0.75rem;
 }
 
@@ -298,42 +278,40 @@
 }
 
 .demo-chip {
-  padding: 0.6rem 0.5rem;
+  padding: 0.65rem 0.5rem;
   background: #FFFFFF;
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-md);
+  border: 1px solid var(--jpm-border-dark);
+  border-radius: var(--radius-sm);
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   transition: all var(--transition-fast);
   cursor: pointer;
-  box-shadow: var(--shadow-sm);
 }
 
 .demo-chip:hover {
-  border-color: var(--border-focus);
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-pill);
+  border-color: var(--jpm-primary);
+  background: var(--jpm-primary-soft);
 }
 
 .demo-role {
   font-size: 0.75rem;
   font-weight: 700;
-  color: var(--text-main);
+  color: var(--jpm-text);
 }
 
 .demo-id {
   font-size: 0.7rem;
-  color: var(--text-muted);
+  color: var(--jpm-muted);
   font-family: monospace;
 }
 
-/* Responsive Styles */
+/* Responsive */
 @media (max-width: 960px) {
   .login-page-container {
     flex-direction: column;
-    padding: 1.5rem;
+    padding: 1rem;
   }
 
   .login-visual-panel {
