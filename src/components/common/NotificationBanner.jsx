@@ -20,7 +20,7 @@ export const NotificationBanner = ({ userId, onDismiss }) => {
   const colorMap = {
     success: { bg: 'var(--success-bg)', border: '#86EFAC', color: 'var(--success-text)' },
     warning: { bg: 'var(--warning-bg)', border: 'var(--warning-border)', color: 'var(--warning-text)' },
-    info: { bg: '#EFF6FF', border: '#93C5FD', color: '#1E40AF' },
+    info: { bg: 'var(--jpm-gold-light)', border: 'var(--jpm-gold)', color: 'var(--jpm-navy)' },
     error: { bg: 'var(--error-bg)', border: 'var(--error-border)', color: 'var(--error-text)' }
   };
 

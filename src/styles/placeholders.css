@@ -88,9 +88,9 @@
 }
 
 .badge-employee {
-  background-color: #EFF6FF;
-  color: #1D4ED8;
-  border: 1px solid #BFDBFE;
+  background-color: #F4F5F7;
+  color: var(--jpm-navy);
+  border: 1px solid var(--border-light);
 }
 
 .badge-hr {

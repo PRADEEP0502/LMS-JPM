@@ -26,7 +26,7 @@ export const STAGE_META = {
     description: 'Understand the work before starting practical training.',
     instruction: 'Watch the training video, read the SOP, and review all learning points.',
     icon: 'BookOpen',
-    color: '#3B82F6'
+    color: '#0A2240'
   },
   B: {
     key: 'B',

@@ -38,10 +38,9 @@
   --revision-bg: #FFF1F2;
   --revision-text: #BE123C;
 
-  /* Accent Gradients (Zentra Blue/Gold) */
-  --gradient-zentra-blue: linear-gradient(180deg, #3B82F6 0%, #1D4ED8 100%);
+  /* Accent Gradients (JPM Corporate Palette) */
   --gradient-zentra-gold: linear-gradient(180deg, #EAB308 0%, #CA8A04 100%);
-  --gradient-zentra-navy: linear-gradient(180deg, #1E3A8A 0%, #0A2240 100%);
+  --gradient-zentra-navy: linear-gradient(180deg, #16365C 0%, #0A2240 100%);
 
   /* Typography */
   --font-family-sans: 'Inter', system-ui, -apple-system, sans-serif;

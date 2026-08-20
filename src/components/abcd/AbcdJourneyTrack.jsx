@@ -196,7 +196,7 @@ export const AbcdJourneyTrack = ({ abcdRecord, onSelectStage, selectedStage }) =
               />
               <defs>
                 <linearGradient id="zentraGoldGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor="#3B82F6" />
+                  <stop offset="0%" stopColor="#0A2240" />
                   <stop offset="100%" stopColor="#C5A059" />
                 </linearGradient>
               </defs>

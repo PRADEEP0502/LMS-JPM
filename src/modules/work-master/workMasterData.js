@@ -6,7 +6,7 @@
  */
 
 export const WORK_LEVELS = [
-  { id: 'L1', label: 'L1 – Beginner', badgeColor: '#3B82F6' },
+  { id: 'L1', label: 'L1 – Beginner', badgeColor: '#0A2240' },
   { id: 'L2', label: 'L2 – Intermediate', badgeColor: '#8B5CF6' },
   { id: 'L3', label: 'L3 – Advanced', badgeColor: '#D97706' }
 ];

@@ -110,16 +110,16 @@
 
 .zentra-funnel-bar {
   width: 100%;
-  background: linear-gradient(180deg, #3B82F6 0%, #1D4ED8 100%);
+  background: linear-gradient(180deg, #16365C 0%, #0A2240 100%);
   border-radius: var(--radius-md) var(--radius-md) 4px 4px;
   position: relative;
   overflow: hidden;
   transition: all var(--transition-smooth);
-  box-shadow: 0 8px 16px rgba(29, 78, 216, 0.2);
+  box-shadow: 0 8px 16px rgba(10, 34, 64, 0.2);
 }
 
 .zentra-funnel-col.is-completed .zentra-funnel-bar {
-  background: linear-gradient(180deg, #3B82F6 0%, #0A2240 100%);
+  background: linear-gradient(180deg, #C5A059 0%, #0A2240 100%);
 }
 
 .zentra-funnel-col.is-current .zentra-funnel-bar {

@@ -3,7 +3,7 @@ import { Eye, Edit3, Video, FileText, CheckCircle2, Power, Layers } from 'lucide
 import { WORK_LEVELS } from '../../modules/work-master/workMasterData';
 
 export const WorkCard = ({ work, onPreview, onEdit, onToggleStatus }) => {
-  const levelInfo = WORK_LEVELS.find(l => l.id === work.level) || { label: work.level, badgeColor: '#3B82F6' };
+  const levelInfo = WORK_LEVELS.find(l => l.id === work.level) || { label: work.level, badgeColor: '#0A2240' };
   const isActive = work.status === 'ACTIVE';
 
   return (

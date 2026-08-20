@@ -22,7 +22,7 @@ export const EmployeeMyWorks = ({ assignments, works, abcdRecords, onSelectWork 
         const abcd = abcdRecords.find(r => r.assignmentId === assign.id);
         if (!work) return null;
 
-        const levelInfo = WORK_LEVELS.find(l => l.id === work.level) || { label: work.level, badgeColor: '#3B82F6' };
+        const levelInfo = WORK_LEVELS.find(l => l.id === work.level) || { label: work.level, badgeColor: '#0A2240' };
         const completedCount = abcd ? STAGE_KEYS.filter(k => abcd.stages[k]?.status === STAGE_STATUS.COMPLETED).length : 0;
         const percent = Math.round((completedCount / STAGE_KEYS.length) * 100);
         const isCompleted = abcd?.overallStatus === 'COMPLETED';

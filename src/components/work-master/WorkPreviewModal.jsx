@@ -5,7 +5,7 @@ import { WORK_LEVELS } from '../../modules/work-master/workMasterData';
 export const WorkPreviewModal = ({ work, isOpen, onClose }) => {
   if (!isOpen || !work) return null;
 
-  const levelInfo = WORK_LEVELS.find(l => l.id === work.level) || { label: work.level, badgeColor: '#3B82F6' };
+  const levelInfo = WORK_LEVELS.find(l => l.id === work.level) || { label: work.level, badgeColor: '#0A2240' };
 
   return (
     <div className="modal-overlay" onClick={onClose}>

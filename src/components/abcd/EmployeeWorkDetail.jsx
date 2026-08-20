@@ -12,7 +12,7 @@ export const EmployeeWorkDetail = ({ assignment, work, abcdRecord, onBack, onSub
 
   if (!work || !abcdRecord) return null;
 
-  const levelInfo = WORK_LEVELS.find(l => l.id === work.level) || { label: work.level, badgeColor: '#3B82F6' };
+  const levelInfo = WORK_LEVELS.find(l => l.id === work.level) || { label: work.level, badgeColor: '#0A2240' };
   const docCount = work.documents?.length || 0;
   const pointCount = work.learningPoints?.length || 0;
 
