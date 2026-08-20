@@ -1,26 +1,34 @@
-/* Placeholders Layout */
+/* Zentra-inspired Header & Layout Styles */
+
 .app-header {
-  background-color: var(--jpm-navy);
-  color: var(--text-inverse);
-  padding: 0.85rem 2rem;
+  background-color: var(--bg-surface);
+  color: var(--text-main);
+  padding: 0.9rem 2.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: var(--shadow-md);
+  border-bottom: 1px solid var(--border-light);
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: 50;
 }
 
 .header-brand {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
 }
 
 .header-title {
   font-family: var(--font-family-heading);
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: #FFFFFF;
-  letter-spacing: -0.01em;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-main);
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .header-title span {
@@ -37,98 +45,105 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  background-color: var(--bg-subtle);
+  padding: 4px 12px 4px 6px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-light);
 }
 
 .user-avatar {
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   border-radius: var(--radius-full);
-  background-color: var(--jpm-gold);
-  color: var(--jpm-navy-dark);
+  background-color: var(--jpm-navy);
+  color: var(--jpm-gold);
   font-weight: 700;
-  font-size: 0.875rem;
+  font-size: 0.8rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .user-info-text {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  gap: 8px;
 }
 
 .user-name {
-  font-size: 0.875rem;
+  font-size: 0.85rem;
   font-weight: 600;
-  color: #FFFFFF;
+  color: var(--text-main);
 }
 
 .user-role-badge {
   display: inline-block;
   padding: 2px 8px;
   border-radius: var(--radius-full);
-  font-size: 0.7rem;
+  font-size: 0.675rem;
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 
 .badge-employee {
-  background-color: rgba(59, 130, 246, 0.2);
-  color: #93C5FD;
-  border: 1px solid rgba(147, 197, 253, 0.3);
+  background-color: #EFF6FF;
+  color: #1D4ED8;
+  border: 1px solid #BFDBFE;
 }
 
 .badge-hr {
-  background-color: rgba(236, 72, 153, 0.2);
-  color: #F9A8D4;
-  border: 1px solid rgba(249, 168, 212, 0.3);
+  background-color: #FDF2F8;
+  color: #BE185D;
+  border: 1px solid #FBCFE8;
 }
 
 .badge-md {
-  background-color: rgba(212, 175, 55, 0.2);
-  color: #FDE68A;
-  border: 1px solid rgba(253, 230, 138, 0.3);
+  background-color: #FEFCE8;
+  color: #A16207;
+  border: 1px solid #FEF08A;
 }
 
 .logout-btn {
   display: flex;
   align-items: center;
   gap: 6px;
-  padding: 0.45rem 0.85rem;
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #FFFFFF;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: var(--radius-sm);
+  padding: 0.5rem 1rem;
+  background-color: var(--bg-subtle);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-full);
   font-size: 0.825rem;
-  font-weight: 500;
+  font-weight: 600;
   transition: all var(--transition-fast);
 }
 
 .logout-btn:hover {
-  background-color: rgba(239, 68, 68, 0.2);
-  border-color: rgba(239, 68, 68, 0.4);
-  color: #FCA5A5;
+  background-color: #FEF2F2;
+  border-color: #FCA5A5;
+  color: var(--error-text);
 }
 
-/* Main Dashboard Body */
+/* Main Dashboard Body Container */
 .dashboard-container {
   flex: 1;
-  max-width: 1280px;
+  max-width: 1400px;
   width: 100%;
   margin: 0 auto;
-  padding: 2rem 1.5rem;
+  padding: 2rem 2.5rem;
 }
 
 .step-status-banner {
-  background-color: var(--jpm-gold-light);
-  border: 1px solid var(--jpm-gold);
-  border-radius: var(--radius-md);
-  padding: 1.25rem 1.5rem;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem 1.75rem;
   margin-bottom: 2rem;
   display: flex;
   align-items: flex-start;
-  gap: 12px;
+  gap: 14px;
+  box-shadow: var(--shadow-sm);
 }
 
 .banner-icon {
@@ -138,7 +153,8 @@
 
 .banner-content h3 {
   font-size: 1rem;
-  color: var(--jpm-navy);
+  font-weight: 700;
+  color: var(--text-main);
   margin-bottom: 0.25rem;
 }
 
@@ -150,39 +166,38 @@
 
 .placeholder-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1.5rem;
 }
 
 .placeholder-card {
   background-color: var(--bg-surface);
   border: 1px solid var(--border-light);
-  border-radius: var(--radius-md);
-  padding: 1.5rem;
+  border-radius: var(--radius-xl);
+  padding: 1.75rem;
   box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  opacity: 0.85;
   transition: all var(--transition-fast);
 }
 
 .placeholder-card:hover {
-  opacity: 1;
-  box-shadow: var(--shadow-md);
-  border-color: var(--jpm-navy-light);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-2px);
+  border-color: var(--jpm-gold);
 }
 
 .card-header {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 
 .card-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: var(--radius-sm);
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
   background-color: var(--bg-subtle);
   color: var(--jpm-navy);
   display: flex;
@@ -191,13 +206,13 @@
 }
 
 .card-title {
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   font-weight: 700;
-  color: var(--jpm-navy);
+  color: var(--text-main);
 }
 
 .card-desc {
-  font-size: 0.85rem;
+  font-size: 0.875rem;
   color: var(--text-secondary);
   line-height: 1.5;
 }
@@ -206,7 +221,7 @@
   align-self: flex-start;
   font-size: 0.725rem;
   font-weight: 600;
-  padding: 4px 10px;
+  padding: 4px 12px;
   background-color: var(--bg-subtle);
   color: var(--jpm-slate-muted);
   border-radius: var(--radius-full);

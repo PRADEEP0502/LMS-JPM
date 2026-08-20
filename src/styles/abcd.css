@@ -1,0 +1,790 @@
+/* ============================================
+   Zentra Dribbble Aesthetic — ABCD Learning Journey
+   ============================================ */
+
+/* Main 2-Column Dashboard Layout */
+.zentra-dashboard-layout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 1.75rem;
+  margin-bottom: 2rem;
+}
+
+/* Left Column: Zentra Crisp White Analytics Card */
+.zentra-main-analytics-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xl);
+  padding: 2.25rem;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.zentra-card-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.zentra-card-subtitle {
+  font-family: var(--font-family-heading);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.zentra-card-title {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: var(--text-main);
+  letter-spacing: -0.02em;
+}
+
+.zentra-date-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background-color: var(--bg-subtle);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+/* 3D Slanted Funnel Bar Chart Visualizer */
+.zentra-funnel-visualizer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  height: 200px;
+  background-color: var(--bg-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  border: 1px solid var(--border-light);
+}
+
+.zentra-funnel-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 100%;
+  position: relative;
+}
+
+.zentra-funnel-meta {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8px;
+  z-index: 2;
+}
+
+.funnel-stage-name {
+  font-size: 0.725rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.funnel-val {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.zentra-funnel-bar-container {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  position: relative;
+}
+
+.zentra-funnel-bar {
+  width: 100%;
+  background: linear-gradient(180deg, #3B82F6 0%, #1D4ED8 100%);
+  border-radius: var(--radius-md) var(--radius-md) 4px 4px;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-smooth);
+  box-shadow: 0 8px 16px rgba(29, 78, 216, 0.2);
+}
+
+.zentra-funnel-col.is-completed .zentra-funnel-bar {
+  background: linear-gradient(180deg, #3B82F6 0%, #0A2240 100%);
+}
+
+.zentra-funnel-col.is-current .zentra-funnel-bar {
+  background: linear-gradient(180deg, #EAB308 0%, #C5A059 100%);
+  box-shadow: 0 8px 16px rgba(197, 160, 89, 0.3);
+}
+
+.bar-stripe-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.15),
+    rgba(255, 255, 255, 0.15) 10px,
+    transparent 10px,
+    transparent 20px
+  );
+}
+
+/* Floating Tooltip */
+.zentra-floating-tooltip {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--text-main);
+  color: #FFFFFF;
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-size: 0.725rem;
+  font-weight: 700;
+  white-space: nowrap;
+  box-shadow: var(--shadow-md);
+  z-index: 10;
+  animation: tooltipFade 200ms ease-out;
+}
+
+@keyframes tooltipFade {
+  from { opacity: 0; transform: translate(-50%, 4px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+/* Right Column Widgets */
+.zentra-right-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Arc Gauge Card (Zentra Security Status 78% Style) */
+.zentra-gauge-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.gauge-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.gauge-card-header h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.gauge-arc-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.gauge-svg {
+  width: 180px;
+  height: 100px;
+}
+
+.gauge-value-text {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.percent-num {
+  font-size: 1.85rem;
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1;
+}
+
+.percent-tag {
+  font-size: 0.725rem;
+  font-weight: 700;
+  color: var(--jpm-slate-muted);
+  margin-top: 4px;
+}
+
+/* Zentra Dark Panel: Session History Style (#18181B) */
+.zentra-dark-panel {
+  background-color: var(--bg-dark-panel);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem;
+  color: #FFFFFF;
+  box-shadow: var(--shadow-lg);
+}
+
+.dark-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark-panel-header h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+.dark-panel-header p {
+  font-size: 0.775rem;
+  color: #A1A1AA;
+}
+
+.dark-panel-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.dark-history-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 10px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.dark-history-item.completed {
+  border-color: rgba(197, 160, 89, 0.4);
+  background: rgba(197, 160, 89, 0.08);
+}
+
+.history-badge-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
+  font-weight: 800;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.dark-history-item.completed .history-badge-icon {
+  background-color: var(--jpm-gold);
+  color: var(--jpm-navy-dark);
+}
+
+.history-text-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.history-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.history-sub {
+  font-size: 0.725rem;
+  color: #A1A1AA;
+}
+
+.history-date {
+  font-size: 0.7rem;
+  color: #71717A;
+}
+
+/* Desktop Horizontal Journey Nodes */
+.abcd-desktop-track {
+  background-color: var(--bg-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  border: 1px solid var(--border-light);
+}
+
+.abcd-nodes-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  z-index: 2;
+}
+
+.abcd-connecting-line {
+  position: absolute;
+  top: 26px;
+  left: 40px;
+  right: 40px;
+  height: 4px;
+  background-color: var(--border-light);
+  border-radius: var(--radius-full);
+  z-index: 1;
+}
+
+.abcd-connecting-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--jpm-navy) 0%, var(--jpm-gold) 100%);
+  border-radius: var(--radius-full);
+  transition: width var(--transition-smooth);
+}
+
+/* Individual Stage Node */
+.abcd-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 120px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  transition: all var(--transition-fast);
+  position: relative;
+}
+
+.abcd-node:hover {
+  transform: translateY(-2px);
+}
+
+.abcd-node-circle {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-full);
+  background-color: var(--bg-surface);
+  border: 3px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  transition: all var(--transition-normal);
+  position: relative;
+  z-index: 3;
+  box-shadow: var(--shadow-sm);
+}
+
+.abcd-node.is-completed .abcd-node-circle {
+  background-color: var(--jpm-navy);
+  border-color: var(--jpm-navy);
+  color: var(--jpm-gold);
+}
+
+.abcd-node.is-current .abcd-node-circle {
+  background-color: var(--jpm-gold);
+  border-color: var(--jpm-navy);
+  color: var(--jpm-navy-dark);
+  box-shadow: 0 0 0 6px rgba(197, 160, 89, 0.25);
+}
+
+.abcd-node.is-selected .abcd-node-circle {
+  box-shadow: 0 0 0 4px var(--jpm-navy), 0 8px 16px rgba(10, 34, 64, 0.2) !important;
+}
+
+.abcd-node-letter {
+  font-family: var(--font-family-heading);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 0.6rem;
+  color: var(--text-muted);
+}
+
+.abcd-node-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-top: 0.15rem;
+}
+
+.abcd-node-status {
+  margin-top: 0.35rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+}
+
+.abcd-node-status.status-completed {
+  background-color: #DCFCE7;
+  color: #15803D;
+}
+
+.abcd-node-status.status-current {
+  background-color: var(--jpm-gold-light);
+  color: var(--jpm-navy);
+  border: 1px solid var(--jpm-gold);
+}
+
+.abcd-node-status.status-pending {
+  background-color: #FEF3C7;
+  color: #92400E;
+}
+
+.abcd-node-status.status-revision {
+  background-color: #FFE4E6;
+  color: #BE123C;
+}
+
+.abcd-node-status.status-locked {
+  background-color: var(--bg-subtle);
+  color: var(--text-muted);
+}
+
+.abcd-node-date {
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  margin-top: 0.2rem;
+}
+
+/* Mobile Vertical Track Fallback */
+.abcd-mobile-track {
+  display: none;
+  background-color: var(--bg-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  border: 1px solid var(--border-light);
+}
+
+.abcd-mobile-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+}
+
+.abcd-mobile-line {
+  position: absolute;
+  top: 24px;
+  bottom: 24px;
+  left: 23px;
+  width: 3px;
+  background-color: var(--border-light);
+  z-index: 1;
+}
+
+.abcd-mobile-node {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0.75rem;
+  border-radius: var(--radius-md);
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+  border: 1px solid transparent;
+  background: none;
+  width: 100%;
+  text-align: left;
+}
+
+.abcd-mobile-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  background-color: var(--bg-surface);
+  border: 2px solid var(--border-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.abcd-mobile-info {
+  flex: 1;
+}
+
+.abcd-mobile-step {
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: var(--text-muted);
+}
+
+.abcd-mobile-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+/* Stage Detail Card */
+.abcd-stage-detail {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-top: 4px solid var(--jpm-gold);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  box-shadow: var(--shadow-md);
+  margin-top: 1.5rem;
+}
+
+.abcd-detail-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 1rem;
+}
+
+.abcd-detail-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-md);
+  background-color: var(--jpm-navy);
+  color: var(--jpm-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.abcd-detail-title {
+  font-family: var(--font-family-heading);
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.abcd-detail-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.abcd-detail-body {
+  margin-top: 1.5rem;
+}
+
+.abcd-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.abcd-status-badge.badge-completed {
+  background-color: #DCFCE7;
+  color: #15803D;
+}
+
+.abcd-status-badge.badge-pending {
+  background-color: #FEF3C7;
+  color: #92400E;
+}
+
+.abcd-status-badge.badge-revision {
+  background-color: #FFE4E6;
+  color: #BE123C;
+}
+
+.abcd-resource-card {
+  background-color: var(--bg-subtle);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.abcd-resource-title {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.abcd-action-bar {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-light);
+  margin-top: 1.5rem;
+}
+
+.abcd-submit-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.85rem 1.85rem;
+  background-color: var(--text-main);
+  color: #FFFFFF;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-fast);
+}
+
+.abcd-submit-btn:hover {
+  background-color: var(--jpm-navy);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Works Grid */
+.emp-works-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 1.5rem;
+}
+
+.emp-work-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xl);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.emp-work-card:hover {
+  border-color: var(--jpm-gold);
+  box-shadow: var(--shadow-xl);
+  transform: translateY(-3px);
+}
+
+/* HR Verification Page & Cards */
+.hr-verification-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.hr-verif-header {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xl);
+  padding: 1.75rem 2.25rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.hr-verif-header h1 {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hr-verif-header p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+.hr-verif-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem 1.75rem;
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-fast);
+}
+
+.hr-verif-card:hover {
+  border-color: var(--jpm-gold);
+  box-shadow: var(--shadow-md);
+}
+
+.hr-verif-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  background-color: var(--jpm-navy);
+  color: var(--jpm-gold);
+  font-weight: 800;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.hr-verif-review-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.65rem 1.5rem;
+  background-color: var(--text-main);
+  color: #FFFFFF;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.hr-verif-review-btn:hover {
+  background-color: var(--jpm-navy);
+  transform: translateY(-1px);
+}
+
+/* Modal Zentra Styling */
+.hr-review-modal {
+  border-radius: var(--radius-xl);
+  padding: 2.5rem;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1080px) {
+  .zentra-dashboard-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .abcd-desktop-track {
+    display: none;
+  }
+
+  .abcd-mobile-track {
+    display: block;
+  }
+
+  .zentra-funnel-visualizer {
+    grid-template-columns: repeat(2, 1fr);
+    height: auto;
+  }
+}

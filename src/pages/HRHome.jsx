@@ -1,125 +1,174 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { JpmLogo } from '../components/common/JpmLogo';
-import { LogOut, BookOpen, Users, CheckCircle2 } from 'lucide-react';
+import { LogOut, BookOpen, ShieldCheck, Users } from 'lucide-react';
 import { WorkMasterList } from '../components/work-master/WorkMasterList';
-import { MODULE_CATALOG } from '../data/mockUsers';
+import { HRAbcdVerification } from '../components/abcd/HRAbcdVerification';
+import { HRReviewModal } from '../components/abcd/HRReviewModal';
+import { HREmployeeProgress } from '../components/abcd/HREmployeeProgress';
+import { abcdService } from '../modules/abcd/abcdService';
+import { workMasterService } from '../modules/work-master/workMasterService';
+import { assignmentService } from '../modules/assignment/assignmentService';
+import { notificationService } from '../modules/notification/notificationService';
 import '../styles/placeholders.css';
+import '../styles/abcd.css';
+
+const NAV_TABS = [
+  { id: 'work-master', label: 'Work Master', icon: BookOpen },
+  { id: 'abcd-verification', label: 'ABCD Verification', icon: ShieldCheck },
+  { id: 'employee-progress', label: 'Employee Progress', icon: Users },
+];
 
 export const HRHome = () => {
   const { user, logout } = useAuth();
   const [activeTab, setActiveTab] = useState('work-master');
+  const [refreshKey, setRefreshKey] = useState(0);
+  const [reviewItem, setReviewItem] = useState(null);
+
+  const works = workMasterService.getWorks();
+  const pendingItems = abcdService.getPendingVerifications();
+  const allProgress = abcdService.getAllProgress();
+  const allAssignments = assignmentService.getAllAssignments();
+
+  const handleReview = (item) => setReviewItem(item);
+  const handleCloseReview = () => setReviewItem(null);
+
+  const handleApprove = (assignmentId, stageKey, remarks, rating) => {
+    abcdService.approveStage(assignmentId, stageKey, user?.userId || 'hr201', remarks, rating);
+
+    // Find the employee to notify
+    const record = abcdService.getAllProgress().find(r => r.assignmentId === assignmentId);
+    if (record) {
+      const work = works.find(w => w.id === record.workId);
+      const isComplete = stageKey === 'D';
+      notificationService.addNotification(record.employeeId,
+        isComplete
+          ? `🎉 Congratulations! Your work "${work?.name}" has been marked as COMPLETED.`
+          : `Your ${stageKey} — ${stageKey === 'A' ? 'Learned' : stageKey === 'B' ? 'Practical' : stageKey === 'C' ? 'Can Perform' : 'Performance'} stage has been approved. Next stage is now available.`,
+        isComplete ? 'success' : 'info'
+      );
+    }
+
+    setReviewItem(null);
+    setRefreshKey(k => k + 1);
+  };
+
+  const handleReject = (assignmentId, stageKey, remarks) => {
+    abcdService.rejectStage(assignmentId, stageKey, user?.userId || 'hr201', remarks);
+
+    const record = abcdService.getAllProgress().find(r => r.assignmentId === assignmentId);
+    if (record) {
+      notificationService.addNotification(record.employeeId,
+        `HR has requested a revision for your ${stageKey} stage. Please review the feedback and resubmit.`,
+        'warning'
+      );
+    }
+
+    setReviewItem(null);
+    setRefreshKey(k => k + 1);
+  };
+
+  // Find work for review item
+  const reviewWork = reviewItem ? works.find(w => w.id === reviewItem.workId) : null;
 
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-      {/* Header Bar */}
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: 'var(--bg-primary)' }}>
+      {/* Zentra Floating Header */}
       <header className="app-header">
         <div className="header-brand">
           <JpmLogo size={32} variant="dark" />
-          <div className="header-title">
-            JPM <span>LMS</span> — HR Administration
-          </div>
+          <div className="header-title">jpm <span>lms</span></div>
         </div>
 
-        {/* HR Navigation Tabs */}
-        <div style={{ display: 'flex', gap: '8px', marginLeft: '2rem' }}>
-          <button
-            onClick={() => setActiveTab('work-master')}
-            style={{
-              padding: '0.5rem 1.15rem',
-              borderRadius: 'var(--radius-sm)',
-              fontSize: '0.85rem',
-              fontWeight: 700,
-              backgroundColor: activeTab === 'work-master' ? 'var(--jpm-gold)' : 'rgba(255, 255, 255, 0.1)',
-              color: activeTab === 'work-master' ? 'var(--jpm-navy-dark)' : '#FFFFFF',
-              border: 'none',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '6px',
-              transition: 'all 150ms ease'
-            }}
-          >
-            <BookOpen size={16} /> Work Master
-          </button>
-
-          <button
-            onClick={() => setActiveTab('overview')}
-            style={{
-              padding: '0.5rem 1.15rem',
-              borderRadius: 'var(--radius-sm)',
-              fontSize: '0.85rem',
-              fontWeight: 700,
-              backgroundColor: activeTab === 'overview' ? 'var(--jpm-gold)' : 'rgba(255, 255, 255, 0.1)',
-              color: activeTab === 'overview' ? 'var(--jpm-navy-dark)' : '#FFFFFF',
-              border: 'none',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '6px',
-              transition: 'all 150ms ease'
-            }}
-          >
-            <Users size={16} /> HR Overview
-          </button>
+        {/* Zentra Center Pill Navigation Bar */}
+        <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+          {NAV_TABS.map(tab => {
+            const TabIcon = tab.icon;
+            const isActive = activeTab === tab.id;
+            const pendingCount = tab.id === 'abcd-verification' ? pendingItems.length : 0;
+            return (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                style={{
+                  padding: '0.6rem 1.25rem',
+                  borderRadius: 'var(--radius-full)',
+                  fontSize: '0.85rem',
+                  fontWeight: isActive ? 700 : 600,
+                  backgroundColor: isActive ? '#18181B' : 'transparent',
+                  color: isActive ? '#FFFFFF' : '#52525B',
+                  border: 'none',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  boxShadow: isActive ? '0 4px 12px rgba(24, 24, 27, 0.25)' : 'none',
+                  transition: 'all 200ms ease',
+                  position: 'relative'
+                }}
+              >
+                <TabIcon size={16} color={isActive ? '#C5A059' : '#71717A'} />
+                <span>{tab.label}</span>
+                {pendingCount > 0 && (
+                  <span style={{
+                    position: 'absolute', top: '-2px', right: '-2px',
+                    width: '18px', height: '18px', borderRadius: '50%',
+                    backgroundColor: '#DC2626', color: '#FFFFFF',
+                    fontSize: '0.6rem', fontWeight: 800,
+                    display: 'flex', alignItems: 'center', justifyContent: 'center'
+                  }}>{pendingCount}</span>
+                )}
+              </button>
+            );
+          })}
         </div>
 
-        <div className="header-user-section" style={{ marginLeft: 'auto' }}>
+        <div className="header-user-section">
           <div className="user-profile-summary">
-            <div className="user-avatar" style={{ backgroundColor: '#EC4899', color: '#FFFFFF' }}>
+            <div className="user-avatar" style={{ backgroundColor: '#18181B', color: '#C5A059' }}>
               {user?.avatarInitials || 'HR'}
             </div>
             <div className="user-info-text">
               <span className="user-name">{user?.name || 'HR Manager'}</span>
-              <span className="user-role-badge badge-hr">HR Administrator</span>
+              <span className="user-role-badge badge-hr">HR Admin</span>
             </div>
           </div>
           <button className="logout-btn" onClick={logout} title="Sign Out">
-            <LogOut size={16} />
-            <span>Sign Out</span>
+            <LogOut size={16} /><span>Sign Out</span>
           </button>
         </div>
       </header>
 
-      {/* Content Area */}
+      {/* Content */}
       <main className="dashboard-container">
-        {activeTab === 'work-master' ? (
-          <WorkMasterList />
-        ) : (
-          <div>
-            {/* Step 3 Notice */}
-            <div className="step-status-banner" style={{ backgroundColor: '#FDF2F8', borderColor: '#F472B6' }}>
-              <CheckCircle2 size={24} className="banner-icon" style={{ color: '#DB2777' }} />
-              <div className="banner-content">
-                <h3>STEP 3 COMPLETED — HR Work Master Active</h3>
-                <p>
-                  Logged in as <strong>{user?.name}</strong> ({user?.title} - {user?.department}). 
-                  HR can create, edit, preview, and manage Work Master items along with Training Videos, SOPs, Learning Points, and Practical Training parameters.
-                </p>
-              </div>
-            </div>
-
-            <h2 style={{ fontSize: '1.25rem', marginBottom: '1rem', color: 'var(--jpm-navy)' }}>
-              HR Administrative Modules
-            </h2>
-
-            <div className="placeholder-grid">
-              {MODULE_CATALOG.filter(m => m.roleAccess.includes('HR')).map(mod => (
-                <div key={mod.id} className="placeholder-card">
-                  <div className="card-header">
-                    <div className="card-icon" style={{ color: '#DB2777' }}>
-                      <Users size={20} />
-                    </div>
-                    <h4 className="card-title">{mod.title}</h4>
-                  </div>
-                  <p className="card-desc">{mod.description}</p>
-                  <span className="card-status-tag">Step 4+ Placeholder</span>
-                </div>
-              ))}
-            </div>
-          </div>
+        {activeTab === 'work-master' && <WorkMasterList />}
+        {activeTab === 'abcd-verification' && (
+          <HRAbcdVerification
+            key={refreshKey}
+            pendingItems={pendingItems}
+            works={works}
+            onReview={handleReview}
+          />
+        )}
+        {activeTab === 'employee-progress' && (
+          <HREmployeeProgress
+            key={refreshKey}
+            employeeRecords={allProgress}
+            works={works}
+            assignments={allAssignments}
+          />
         )}
       </main>
+
+      {/* Review Modal */}
+      <HRReviewModal
+        isOpen={!!reviewItem}
+        onClose={handleCloseReview}
+        item={reviewItem}
+        work={reviewWork}
+        onApprove={handleApprove}
+        onReject={handleReject}
+      />
     </div>
   );
 };
