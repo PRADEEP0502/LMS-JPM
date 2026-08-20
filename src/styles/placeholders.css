@@ -109,6 +109,7 @@
 }
 
 /* Minimal Floating Top Bar (#10 Requirement) */
+.app-header,
 .jpm-topbar {
   background: var(--jpm-surface);
   backdrop-filter: var(--glass-blur);
@@ -120,6 +121,64 @@
   justify-content: space-between;
   align-items: center;
   box-shadow: var(--shadow-soft);
+}
+
+.header-brand,
+.header-user-section,
+.user-profile-summary {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-title {
+  font-family: var(--font-family-heading);
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--jpm-text);
+}
+
+.user-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  background: var(--jpm-primary);
+  color: #FFFFFF;
+  font-weight: 800;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-info-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--jpm-text);
+}
+
+.user-role-badge {
+  font-size: 0.7rem;
+  color: var(--jpm-text-secondary);
+}
+
+.logout-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius-full);
+  background: var(--jpm-surface-solid);
+  border: 1px solid var(--jpm-border-dark);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--jpm-text);
+  cursor: pointer;
 }
 
 .topbar-left {

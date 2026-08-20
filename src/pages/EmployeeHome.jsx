@@ -112,20 +112,22 @@ export const EmployeeHome = () => {
   if (!user?.onboardingCompleted && onboardingState.started && !onboardingState.isFinished) {
     return (
       <div className="onboarding-page">
-        <header className="app-header">
-          <div className="header-brand">
+        <header className="jpm-topbar" style={{ margin: '1.5rem 2.5rem 0 2.5rem' }}>
+          <div className="topbar-left" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
             <JpmLogo size={32} />
-            <div className="header-title">JPM <span>LMS</span> &bull; Onboarding Journey</div>
+            <span>JPM LMS &bull; Onboarding Journey</span>
           </div>
-          <div className="header-user-section">
-            <div className="user-profile-summary">
-              <div className="user-avatar">{user?.avatarInitials || 'JD'}</div>
-              <div className="user-info-text">
-                <span className="user-name">{user?.name || 'Employee'}</span>
-                <span className="user-role-badge badge-employee">Employee</span>
+          <div className="topbar-right">
+            <div className="topbar-user-pill">
+              <div className="topbar-avatar">{user?.avatarInitials || 'JD'}</div>
+              <div className="topbar-user-info">
+                <span className="topbar-user-name">{user?.name || 'Employee'}</span>
+                <span className="topbar-user-sub">Employee</span>
               </div>
             </div>
-            <button className="logout-btn" onClick={logout} title="Sign Out"><LogOut size={16} /><span>Sign Out</span></button>
+            <button className="topbar-icon-btn" onClick={logout} title="Sign Out">
+              <LogOut size={16} />
+            </button>
           </div>
         </header>
         <main className="journey-main-layout">
