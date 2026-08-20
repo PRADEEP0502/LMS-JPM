@@ -20,7 +20,7 @@ export const MOCK_USERS = [
     role: 'EMPLOYEE',
     title: 'Senior Operations Analyst',
     department: 'Corporate Operations',
-    email: 'john.doe@jpmorgan.com',
+    email: 'john.doe@jpmmill.com',
     avatarInitials: 'JD'
   },
   {
@@ -30,7 +30,7 @@ export const MOCK_USERS = [
     role: 'HR',
     title: 'HR Business Partner',
     department: 'Global Human Resources',
-    email: 'sarah.jenkins@jpmorgan.com',
+    email: 'sarah.jenkins@jpmmill.com',
     avatarInitials: 'SJ'
   },
   {
@@ -40,7 +40,7 @@ export const MOCK_USERS = [
     role: 'MD',
     title: 'Managing Director',
     department: 'Executive Leadership',
-    email: 'robert.sterling@jpmorgan.com',
+    email: 'robert.sterling@jpmmill.com',
     avatarInitials: 'RS'
   }
 ];

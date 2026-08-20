@@ -17,7 +17,7 @@ export const INITIAL_ONBOARDING_STAGES = [
     stageNumber: 1,
     title: 'Personal Information & Contact Verification',
     shortName: 'PROFILE',
-    description: 'Verify your official J.P. Morgan employee profile, contact details, emergency contacts, and primary office location.',
+    description: 'Verify your official Junior Processing Mill employee profile, contact details, emergency contacts, and primary office location.',
     iconName: 'UserCheck',
     fields: [
       { id: 'fullName', label: 'Full Legal Name', type: 'text', defaultValue: 'John Doe', readOnly: true },

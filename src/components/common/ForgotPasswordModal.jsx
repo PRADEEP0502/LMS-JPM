@@ -64,7 +64,7 @@ export const ForgotPasswordModal = ({ isOpen, onClose }) => {
         ) : (
           <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
             <p style={{ fontSize: '0.875rem', color: '#475569', lineHeight: 1.5 }}>
-              Enter your corporate <strong>User ID</strong> below to receive password reset instructions via your registered J.P. Morgan email address.
+              Enter your corporate <strong>User ID</strong> below to receive password reset instructions via your registered Junior Processing Mill email address.
             </p>
 
             {error && (

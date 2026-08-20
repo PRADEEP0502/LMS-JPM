@@ -43,7 +43,7 @@ export const LoginPage = () => {
       <div className="login-visual-panel">
         <div className="visual-brand-header">
           <JpmLogo size={36} />
-          <span className="brand-badge">Sense &bull; JPM LMS</span>
+          <span className="brand-badge">Junior Processing Mill &bull; JPM LMS</span>
         </div>
 
         <div className="visual-content">
@@ -52,12 +52,12 @@ export const LoginPage = () => {
             Enterprise <span>Learning</span> & Excellence System
           </h1>
           <p className="visual-description">
-            Empowering J.P. Morgan teams with structured learning pathways, policy compliance, and performance milestones.
+            Empowering Junior Processing Mill teams with structured learning pathways, policy compliance, and performance milestones.
           </p>
         </div>
 
         <div className="visual-footer">
-          <span>&copy; {new Date().getFullYear()} J.P. Morgan Chase & Co. All rights reserved.</span>
+          <span>&copy; {new Date().getFullYear()} Junior Processing Mill. All rights reserved.</span>
           <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
             <ShieldCheck size={14} color="#FF5E7E" /> Encrypted Gateway
           </span>

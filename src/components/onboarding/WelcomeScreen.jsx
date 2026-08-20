@@ -9,7 +9,7 @@ export const WelcomeScreen = ({ userName, onStartJourney }) => {
       <div className="welcome-card">
         <div className="welcome-hero-badge">
           <Sparkles size={16} />
-          <span>J.P. Morgan Employee Gateway</span>
+          <span>Junior Processing Mill Employee Gateway</span>
         </div>
 
         <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '2rem' }}>
@@ -32,7 +32,7 @@ export const WelcomeScreen = ({ userName, onStartJourney }) => {
             Your Onboarding Journey
           </h4>
           <p className="welcome-desc" style={{ marginBottom: '1.75rem' }}>
-            Complete each step to begin your journey at JPM.
+            Complete each step to begin your journey at Junior Processing Mill.
           </p>
 
           <button className="start-journey-btn" onClick={onStartJourney}>
@@ -43,7 +43,7 @@ export const WelcomeScreen = ({ userName, onStartJourney }) => {
 
         <div style={{ marginTop: '2rem', display: 'flex', justifyContent: 'center', gap: '8px', color: 'var(--text-muted)', fontSize: '0.8rem' }}>
           <ShieldCheck size={16} color="#FF5E7E" />
-          <span>Official J.P. Morgan Onboarding System</span>
+          <span>Official Junior Processing Mill Onboarding System</span>
         </div>
       </div>
     </div>

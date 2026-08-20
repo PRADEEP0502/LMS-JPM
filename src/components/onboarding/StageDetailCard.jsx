@@ -135,7 +135,7 @@ export const StageDetailCard = ({
       <div className="stage-action-bar">
         <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '0.825rem', color: 'var(--text-secondary)' }}>
           <ShieldCheck size={16} color="#C5A059" />
-          <span>J.P. Morgan Onboarding Verification</span>
+          <span>Junior Processing Mill Onboarding Verification</span>
         </div>
 
         {isCurrent && (
