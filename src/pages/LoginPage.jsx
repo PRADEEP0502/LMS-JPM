@@ -40,13 +40,11 @@ export const LoginPage = () => {
 
   return (
     <div className="login-page-container">
-      {/* Left Visual Panel */}
+      {/* Left Visual Sense Panel */}
       <div className="login-visual-panel">
-        <div className="login-visual-overlay" />
-        
         <div className="visual-brand-header">
-          <JpmLogo size={36} variant="dark" />
-          <span className="brand-badge">J.P. Morgan Global LMS</span>
+          <JpmLogo size={36} />
+          <span className="brand-badge">Sense &bull; JPM LMS</span>
         </div>
 
         <div className="visual-content">
@@ -67,25 +65,25 @@ export const LoginPage = () => {
 
         <div className="visual-footer">
           <span>&copy; {new Date().getFullYear()} J.P. Morgan Chase & Co. All rights reserved.</span>
-          <span style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-            <ShieldCheck size={14} color="#C5A059" /> 256-Bit Encrypted Gateway
+          <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <ShieldCheck size={14} color="#FF5E7E" /> Encrypted Gateway
           </span>
         </div>
       </div>
 
-      {/* Right Form Panel */}
+      {/* Right Sense Form Panel */}
       <div className="login-form-panel">
         <div className="login-form-container">
           <div className="login-header">
             <div className="login-logo-row">
-              <JpmLogo size={42} />
+              <JpmLogo size={40} />
               <div className="jpm-logo-text">
                 JPM <span className="jpm-logo-tag">LMS</span>
               </div>
             </div>
             <h2 className="login-title">Sign In to JPM LMS</h2>
             <p className="login-subtitle">
-              Enter your corporate User ID and Password to access your learning portal.
+              Enter your corporate User ID and Password to access your portal.
             </p>
           </div>
 
@@ -97,28 +95,28 @@ export const LoginPage = () => {
           )}
 
           <form onSubmit={handleSubmit} className="login-form">
-            {/* User ID Field */}
             <div className="form-group">
-              <label className="form-label" htmlFor="user-id">User ID</label>
+              <label htmlFor="userId" className="form-label">User ID</label>
               <div className="input-wrapper">
-                <User className="input-icon-left" size={18} />
+                <span className="input-icon-left">
+                  <User size={18} />
+                </span>
                 <input
-                  id="user-id"
+                  id="userId"
                   type="text"
-                  className={`form-input ${error ? 'has-error' : ''}`}
+                  className="form-input"
                   placeholder="Enter User ID (e.g. emp101)"
                   value={userId}
                   onChange={(e) => {
                     setUserId(e.target.value);
                     if (error) clearError();
                   }}
-                  required
                   autoComplete="username"
+                  required
                 />
               </div>
             </div>
 
-            {/* Password Field */}
             <div className="form-group">
               <div className="form-label">
                 <label htmlFor="password">Password</label>
@@ -131,25 +129,26 @@ export const LoginPage = () => {
                 </button>
               </div>
               <div className="input-wrapper">
-                <Lock className="input-icon-left" size={18} />
+                <span className="input-icon-left">
+                  <Lock size={18} />
+                </span>
                 <input
                   id="password"
                   type={showPassword ? 'text' : 'password'}
-                  className={`form-input ${error ? 'has-error' : ''}`}
+                  className="form-input"
                   placeholder="Enter Password"
                   value={password}
                   onChange={(e) => {
                     setPassword(e.target.value);
                     if (error) clearError();
                   }}
-                  required
                   autoComplete="current-password"
+                  required
                 />
                 <button
                   type="button"
                   className="password-toggle-btn"
                   onClick={() => setShowPassword(!showPassword)}
-                  aria-label={showPassword ? 'Hide password' : 'Show password'}
                   title={showPassword ? 'Hide password' : 'Show password'}
                 >
                   {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
@@ -157,54 +156,51 @@ export const LoginPage = () => {
               </div>
             </div>
 
-            {/* Submit Button */}
             <button type="submit" className="submit-btn" disabled={loading}>
-              {loading ? 'Authenticating...' : 'Sign In'}
-              {!loading && <ArrowRight size={18} />}
+              {loading ? (
+                <span>Authenticating...</span>
+              ) : (
+                <>
+                  <span>Sign In</span>
+                  <ArrowRight size={18} />
+                </>
+              )}
             </button>
           </form>
 
-          {/* Demo Credentials Quick Switcher */}
+          {/* Quick Demo Accounts Bar */}
           <div className="demo-accounts-card">
-            <div className="demo-title">
-              <span>Demo Accounts (Step 1 Testing)</span>
-            </div>
+            <div className="demo-title">DEMO ACCOUNTS (TESTING)</div>
             <div className="demo-chips">
-              <button
-                type="button"
+              <div
                 className="demo-chip"
                 onClick={() => handleQuickLogin('emp101', 'password123')}
-                title="Login as Employee"
+                title="Click to autofill Employee credentials"
               >
                 <span className="demo-role">Employee</span>
                 <span className="demo-id">emp101</span>
-              </button>
-
-              <button
-                type="button"
+              </div>
+              <div
                 className="demo-chip"
                 onClick={() => handleQuickLogin('hr201', 'password123')}
-                title="Login as HR"
+                title="Click to autofill HR credentials"
               >
                 <span className="demo-role">HR</span>
                 <span className="demo-id">hr201</span>
-              </button>
-
-              <button
-                type="button"
+              </div>
+              <div
                 className="demo-chip"
                 onClick={() => handleQuickLogin('md301', 'password123')}
-                title="Login as MD"
+                title="Click to autofill MD credentials"
               >
                 <span className="demo-role">MD</span>
                 <span className="demo-id">md301</span>
-              </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Forgot Password Modal */}
       <ForgotPasswordModal
         isOpen={isForgotPasswordOpen}
         onClose={() => setIsForgotPasswordOpen(false)}

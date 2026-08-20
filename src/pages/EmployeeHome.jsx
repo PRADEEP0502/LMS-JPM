@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { onboardingService } from '../modules/onboarding/onboardingService';
 import { assignmentService } from '../modules/assignment/assignmentService';
@@ -13,7 +13,7 @@ import { EmployeeMyWorks } from '../components/abcd/EmployeeMyWorks';
 import { EmployeeWorkDetail } from '../components/abcd/EmployeeWorkDetail';
 import { NotificationBanner } from '../components/common/NotificationBanner';
 import { JpmLogo } from '../components/common/JpmLogo';
-import { LogOut, RotateCcw, Briefcase, Bell } from 'lucide-react';
+import { LogOut, RotateCcw, Briefcase, Search, Bell } from 'lucide-react';
 import '../styles/placeholders.css';
 import '../styles/onboarding.css';
 import '../styles/abcd.css';
@@ -109,8 +109,8 @@ export const EmployeeHome = () => {
       <div className="onboarding-page">
         <header className="app-header">
           <div className="header-brand">
-            <JpmLogo size={32} variant="dark" />
-            <div className="header-title">JPM <span>LMS</span> — Onboarding Journey</div>
+            <JpmLogo size={32} />
+            <div className="header-title">jpm <span>lms</span> &bull; Onboarding Journey</div>
           </div>
           <div className="header-user-section">
             <div className="user-profile-summary">
@@ -143,24 +143,27 @@ export const EmployeeHome = () => {
     );
   }
 
-  // VIEW 4: Standard Employee Home — My Works + ABCD
+  // VIEW 4: Sense Employee Home — My Works + ABCD
   const selectedAssignment = selectedAssignmentId ? assignments.find(a => a.id === selectedAssignmentId) : null;
   const selectedWork = selectedAssignment ? works.find(w => w.id === selectedAssignment.workId) : null;
   const selectedAbcd = selectedAssignment ? abcdService.getProgress(selectedAssignment.id, empId, selectedAssignment.workId) : null;
 
+  const firstName = (user?.name || 'Employee').split(' ')[0];
+
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: 'var(--bg-primary)' }}>
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+      {/* Sense Header Navbar */}
       <header className="app-header">
         <div className="header-brand">
-          <JpmLogo size={32} variant="dark" />
-          <div className="header-title">JPM <span>LMS</span></div>
+          <JpmLogo size={32} />
+          <div className="header-title">jpm <span>lms</span></div>
         </div>
 
         <div className="header-user-section">
           <button
             className="logout-btn"
             onClick={handleResetOnboarding}
-            style={{ backgroundColor: 'rgba(197, 160, 89, 0.15)', borderColor: 'var(--jpm-gold)', color: 'var(--jpm-gold)' }}
+            style={{ backgroundColor: 'rgba(255, 255, 255, 0.8)' }}
             title="Re-test Onboarding Flow"
           >
             <RotateCcw size={15} /><span>Re-test Onboarding</span>
@@ -192,10 +195,43 @@ export const EmployeeHome = () => {
           />
         ) : (
           <>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '1.5rem' }}>
-              <Briefcase size={22} color="var(--jpm-navy)" />
-              <h2 style={{ fontSize: '1.35rem', fontWeight: 700, color: 'var(--jpm-navy)' }}>My Assigned Works</h2>
+            {/* Sense Hero Card ("Good Morning Andrew, What's on your mind?" style from reference image) */}
+            <div 
+              style={{
+                background: 'var(--bg-surface)',
+                backdropFilter: 'var(--glass-blur)',
+                WebkitBackdropFilter: 'var(--glass-blur)',
+                border: '1px solid var(--border-glass)',
+                borderRadius: 'var(--radius-xl)',
+                padding: '3rem 2.5rem',
+                textAlign: 'center',
+                boxShadow: 'var(--shadow-lg)',
+                marginBottom: '2.25rem',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}
+            >
+              <div className="sense-orb" style={{ marginBottom: '1.25rem' }} />
+              <h1 style={{ fontSize: '2.5rem', fontWeight: 800, color: 'var(--text-main)', letterSpacing: '-0.02em', lineHeight: 1.25, maxWidth: '640px' }}>
+                Good Day <strong>{firstName}</strong>, what’s on your learning pathway?
+              </h1>
+              <p style={{ fontSize: '1rem', color: 'var(--text-secondary)', marginTop: '0.75rem', maxWidth: '520px' }}>
+                Track your assigned works, execute practical training, and complete your ABCD stage entitlement verifications.
+              </p>
             </div>
+
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.5rem' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <Briefcase size={22} color="var(--text-main)" />
+                <h2 style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--text-main)' }}>Assigned Learning Pathways</h2>
+              </div>
+              <span style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--text-secondary)', backgroundColor: 'rgba(255,255,255,0.8)', padding: '6px 16px', borderRadius: '9999px', border: '1px solid var(--border-glass)' }}>
+                {assignments.length} Active Works
+              </span>
+            </div>
+
             <EmployeeMyWorks
               key={refreshKey}
               assignments={assignments}

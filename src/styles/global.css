@@ -7,10 +7,11 @@
 }
 
 html, body {
-  height: 100%;
+  min-height: 100vh;
   width: 100%;
   font-family: var(--font-family-sans);
-  background-color: var(--bg-primary);
+  background: var(--bg-gradient-mesh);
+  background-attachment: fixed;
   color: var(--text-main);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -24,7 +25,7 @@ html, body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-family-heading);
-  color: var(--jpm-navy);
+  color: var(--text-main);
   letter-spacing: -0.02em;
 }
 
@@ -35,15 +36,36 @@ button {
   background: none;
 }
 
-input {
+input, textarea, select {
   font-family: inherit;
 }
 
 a {
-  color: var(--jpm-navy);
+  color: var(--text-main);
   text-decoration: none;
 }
 
 a:hover {
   text-decoration: underline;
+}
+
+/* Glowing 3D Orb Accent element */
+.sense-orb {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--gradient-orb);
+  box-shadow: 0 10px 24px rgba(255, 94, 126, 0.4);
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.sense-orb-sm {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--gradient-orb);
+  box-shadow: 0 4px 12px rgba(255, 94, 126, 0.3);
+  display: inline-block;
+  flex-shrink: 0;
 }

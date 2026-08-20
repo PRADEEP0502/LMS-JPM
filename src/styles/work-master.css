@@ -1,18 +1,22 @@
-/* Work Master Zentra Aesthetic Styles */
+/* ============================================
+   Sense UI Glassmorphic Theme — Work Master Library
+   ============================================ */
 
 .work-master-page {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.75rem;
 }
 
 /* Header & Action Bar */
 .wm-header-card {
-  background-color: var(--bg-surface);
-  border: 1px solid var(--border-light);
+  background: var(--bg-surface);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border-glass);
   border-radius: var(--radius-xl);
-  padding: 1.75rem 2.25rem;
-  box-shadow: var(--shadow-sm);
+  padding: 2.25rem 2.5rem;
+  box-shadow: var(--shadow-md);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -21,14 +25,14 @@
 }
 
 .wm-title-group h1 {
-  font-size: 1.65rem;
+  font-size: 1.75rem;
   font-weight: 800;
   color: var(--text-main);
   letter-spacing: -0.02em;
 }
 
 .wm-title-group p {
-  font-size: 0.9rem;
+  font-size: 0.925rem;
   color: var(--text-secondary);
   margin-top: 4px;
 }
@@ -37,28 +41,31 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 0.8rem 1.6rem;
-  background-color: var(--text-main);
+  padding: 0.85rem 1.75rem;
+  background: var(--bg-dark-panel);
   color: #FFFFFF;
-  font-size: 0.9rem;
+  font-size: 0.925rem;
   font-weight: 700;
   border-radius: var(--radius-full);
   box-shadow: var(--shadow-md);
   transition: all var(--transition-fast);
+  border: none;
 }
 
 .wm-create-btn:hover {
-  background-color: var(--jpm-navy);
-  transform: translateY(-1px);
+  background: #000000;
+  transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
 }
 
 /* Search & Filters Bar */
 .wm-filter-bar {
-  background-color: var(--bg-surface);
-  border: 1px solid var(--border-light);
+  background: var(--bg-surface);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border-glass);
   border-radius: var(--radius-xl);
-  padding: 1rem 1.25rem;
+  padding: 1.15rem 1.5rem;
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -68,7 +75,7 @@
 
 .wm-search-wrapper {
   flex: 1;
-  min-width: 240px;
+  min-width: 260px;
   position: relative;
   display: flex;
   align-items: center;
@@ -76,26 +83,27 @@
 
 .wm-search-input {
   width: 100%;
-  padding: 0.7rem 1rem 0.7rem 2.5rem;
-  font-size: 0.9rem;
+  padding: 0.8rem 1.15rem 0.8rem 2.75rem;
+  font-size: 0.925rem;
   border: 1px solid var(--border-light);
   border-radius: var(--radius-full);
-  background-color: var(--bg-subtle);
+  background: rgba(255, 255, 255, 0.7);
   transition: all var(--transition-fast);
 }
 
 .wm-search-input:focus {
   outline: none;
-  border-color: var(--jpm-navy);
-  background-color: var(--bg-surface);
+  border-color: var(--border-focus);
+  background: #FFFFFF;
+  box-shadow: 0 0 0 4px rgba(157, 123, 250, 0.15);
 }
 
 .wm-filter-select {
-  padding: 0.7rem 1.25rem;
-  font-size: 0.85rem;
-  font-weight: 600;
+  padding: 0.8rem 1.35rem;
+  font-size: 0.875rem;
+  font-weight: 700;
   color: var(--text-main);
-  background-color: var(--bg-subtle);
+  background: rgba(255, 255, 255, 0.7);
   border: 1px solid var(--border-light);
   border-radius: var(--radius-full);
   cursor: pointer;
@@ -103,23 +111,25 @@
 
 .wm-filter-select:focus {
   outline: none;
-  border-color: var(--jpm-navy);
+  border-color: var(--border-focus);
 }
 
-/* Works List Grid / Layout */
+/* Works List Layout */
 .wm-works-list {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
 }
 
-/* Compact Professional Work Item Card */
+/* Work Item Glass Card */
 .work-item-card {
-  background-color: var(--bg-surface);
-  border: 1px solid var(--border-light);
+  background: var(--bg-surface);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border-glass);
   border-radius: var(--radius-xl);
-  padding: 1.5rem 1.85rem;
-  box-shadow: var(--shadow-sm);
+  padding: 1.65rem 2rem;
+  box-shadow: var(--shadow-md);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -128,21 +138,20 @@
 }
 
 .work-item-card:hover {
-  border-color: var(--jpm-gold);
+  border-color: #FFFFFF;
   box-shadow: var(--shadow-xl);
-  transform: translateY(-2px);
+  transform: translateY(-3px);
 }
 
 .work-item-card.is-inactive {
   opacity: 0.65;
-  background-color: var(--bg-subtle);
 }
 
 .work-info-main {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: 0.45rem;
 }
 
 .work-badge-row {
@@ -153,12 +162,12 @@
 
 .work-dept-badge {
   font-size: 0.725rem;
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--jpm-navy);
-  background-color: var(--bg-subtle);
-  padding: 3px 12px;
+  color: #7C3AED;
+  background-color: rgba(245, 240, 255, 0.9);
+  padding: 4px 12px;
   border-radius: var(--radius-full);
 }
 
@@ -166,20 +175,20 @@
   font-size: 0.725rem;
   font-weight: 800;
   color: #FFFFFF;
-  padding: 2px 10px;
+  padding: 3px 12px;
   border-radius: var(--radius-full);
 }
 
 .work-name {
-  font-size: 1.2rem;
+  font-size: 1.25rem;
   font-weight: 800;
   color: var(--text-main);
 }
 
 .work-short-desc {
-  font-size: 0.875rem;
+  font-size: 0.9rem;
   color: var(--text-secondary);
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
 .work-resources-row {
@@ -193,13 +202,13 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 0.775rem;
-  font-weight: 600;
+  font-size: 0.8rem;
+  font-weight: 700;
   color: var(--text-secondary);
-  background-color: var(--bg-subtle);
-  padding: 4px 12px;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 4px 14px;
   border-radius: var(--radius-full);
-  border: 1px solid var(--border-light);
+  border: 1px solid var(--border-glass);
 }
 
 .work-actions-group {
@@ -212,29 +221,31 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 0.55rem 1.15rem;
-  font-size: 0.825rem;
-  font-weight: 600;
+  padding: 0.6rem 1.25rem;
+  font-size: 0.85rem;
+  font-weight: 700;
   border-radius: var(--radius-full);
-  border: 1px solid var(--border-light);
-  background-color: var(--bg-surface);
+  border: 1px solid var(--border-glass);
+  background: rgba(255, 255, 255, 0.8);
   color: var(--text-main);
   transition: all var(--transition-fast);
+  box-shadow: var(--shadow-sm);
 }
 
 .wm-action-btn:hover {
-  background-color: var(--bg-subtle);
-  border-color: var(--text-main);
+  background-color: #FFFFFF;
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
 }
 
 .wm-action-btn.btn-primary {
-  background-color: var(--text-main);
+  background: var(--bg-dark-panel);
   color: #FFFFFF;
-  border-color: var(--text-main);
+  border: none;
 }
 
 .wm-action-btn.btn-primary:hover {
-  background-color: var(--jpm-navy);
+  background: #000000;
 }
 
 .status-pill {
@@ -242,14 +253,14 @@
   align-items: center;
   gap: 6px;
   font-size: 0.75rem;
-  font-weight: 700;
+  font-weight: 800;
   padding: 4px 12px;
   border-radius: var(--radius-full);
 }
 
 .status-pill.active {
-  background-color: #DCFCE7;
-  color: #15803D;
+  background-color: #D1FAE5;
+  color: #059669;
 }
 
 .status-pill.inactive {
@@ -257,13 +268,18 @@
   color: var(--text-muted);
 }
 
-/* Full Work Form & Preview Modals */
+/* Modals */
 .wm-modal-content {
-  max-width: 840px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(32px);
+  -webkit-backdrop-filter: blur(32px);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-xl);
+  max-width: 860px;
   max-height: 90vh;
   overflow-y: auto;
-  padding: 2.5rem;
-  border-radius: var(--radius-xl);
+  padding: 2.75rem;
+  box-shadow: var(--shadow-xl);
 }
 
 .wm-form-section {
@@ -273,25 +289,13 @@
 }
 
 .wm-form-section-title {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 800;
   color: var(--text-main);
   margin-bottom: 1rem;
   display: flex;
   align-items: center;
   gap: 8px;
-}
-
-.learning-points-builder {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.learning-point-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
 }
 
 .video-preview-box {
@@ -311,14 +315,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.9rem 1.25rem;
-  background-color: var(--bg-subtle);
-  border: 1px solid var(--border-light);
+  padding: 1rem 1.35rem;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid var(--border-glass);
   border-radius: var(--radius-lg);
   margin-bottom: 0.75rem;
 }
 
-/* Responsive Media Queries */
+/* Responsive */
 @media (max-width: 768px) {
   .work-item-card {
     flex-direction: column;

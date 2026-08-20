@@ -1,13 +1,15 @@
-/* Zentra-inspired Header & Layout Styles */
+/* Sense UI Theme — Header & Layout Styles */
 
 .app-header {
-  background-color: var(--bg-surface);
+  background: var(--bg-surface);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   color: var(--text-main);
-  padding: 0.9rem 2.5rem;
+  padding: 0.85rem 2.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-glass);
   box-shadow: var(--shadow-sm);
   position: sticky;
   top: 0;
@@ -22,13 +24,13 @@
 
 .header-title {
   font-family: var(--font-family-heading);
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   font-weight: 800;
   color: var(--text-main);
   letter-spacing: -0.02em;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
 }
 
 .header-title span {
@@ -45,24 +47,25 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  background-color: var(--bg-subtle);
-  padding: 4px 12px 4px 6px;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 4px 14px 4px 6px;
   border-radius: var(--radius-full);
-  border: 1px solid var(--border-light);
+  border: 1px solid var(--border-glass);
+  box-shadow: var(--shadow-sm);
 }
 
 .user-avatar {
-  width: 32px;
-  height: 32px;
+  width: 34px;
+  height: 34px;
   border-radius: var(--radius-full);
-  background-color: var(--jpm-navy);
-  color: var(--jpm-gold);
-  font-weight: 700;
-  font-size: 0.8rem;
+  background: var(--gradient-orb);
+  color: #FFFFFF;
+  font-weight: 800;
+  font-size: 0.85rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(255, 94, 126, 0.3);
 }
 
 .user-info-text {
@@ -72,147 +75,152 @@
 }
 
 .user-name {
-  font-size: 0.85rem;
-  font-weight: 600;
+  font-size: 0.875rem;
+  font-weight: 700;
   color: var(--text-main);
 }
 
 .user-role-badge {
   display: inline-block;
-  padding: 2px 8px;
+  padding: 2px 10px;
   border-radius: var(--radius-full);
   font-size: 0.675rem;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 
 .badge-employee {
-  background-color: #F4F5F7;
-  color: var(--jpm-navy);
-  border: 1px solid var(--border-light);
+  background-color: rgba(245, 240, 255, 0.9);
+  color: #7C3AED;
+  border: 1px solid #DDD6FE;
 }
 
 .badge-hr {
-  background-color: #FDF2F8;
-  color: #BE185D;
+  background-color: rgba(253, 242, 248, 0.9);
+  color: #DB2777;
   border: 1px solid #FBCFE8;
 }
 
 .badge-md {
-  background-color: #FEFCE8;
-  color: #A16207;
-  border: 1px solid #FEF08A;
+  background-color: rgba(254, 252, 232, 0.9);
+  color: #D97706;
+  border: 1px solid #FDE68A;
 }
 
 .logout-btn {
   display: flex;
   align-items: center;
   gap: 6px;
-  padding: 0.5rem 1rem;
-  background-color: var(--bg-subtle);
+  padding: 0.55rem 1.15rem;
+  background: rgba(255, 255, 255, 0.8);
   color: var(--text-secondary);
-  border: 1px solid var(--border-light);
+  border: 1px solid var(--border-glass);
   border-radius: var(--radius-full);
   font-size: 0.825rem;
-  font-weight: 600;
+  font-weight: 700;
   transition: all var(--transition-fast);
+  box-shadow: var(--shadow-sm);
 }
 
 .logout-btn:hover {
-  background-color: #FEF2F2;
-  border-color: #FCA5A5;
-  color: var(--error-text);
+  background-color: #FFE4E6;
+  border-color: #FECDD3;
+  color: #E11D48;
 }
 
 /* Main Dashboard Body Container */
 .dashboard-container {
   flex: 1;
-  max-width: 1400px;
+  max-width: 1440px;
   width: 100%;
   margin: 0 auto;
-  padding: 2rem 2.5rem;
+  padding: 2.25rem 2.5rem;
 }
 
 .step-status-banner {
-  background-color: var(--bg-surface);
-  border: 1px solid var(--border-light);
-  border-radius: var(--radius-lg);
-  padding: 1.25rem 1.75rem;
+  background: var(--bg-surface);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-xl);
+  padding: 1.5rem 2rem;
   margin-bottom: 2rem;
   display: flex;
   align-items: flex-start;
   gap: 14px;
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-md);
 }
 
 .banner-icon {
-  color: var(--jpm-gold-hover);
+  color: #FF5E7E;
   margin-top: 2px;
 }
 
 .banner-content h3 {
-  font-size: 1rem;
-  font-weight: 700;
+  font-size: 1.05rem;
+  font-weight: 800;
   color: var(--text-main);
   margin-bottom: 0.25rem;
 }
 
 .banner-content p {
-  font-size: 0.875rem;
+  font-size: 0.9rem;
   color: var(--text-secondary);
   line-height: 1.5;
 }
 
 .placeholder-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 1.5rem;
 }
 
 .placeholder-card {
-  background-color: var(--bg-surface);
-  border: 1px solid var(--border-light);
+  background: var(--bg-surface);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border-glass);
   border-radius: var(--radius-xl);
-  padding: 1.75rem;
-  box-shadow: var(--shadow-sm);
+  padding: 2rem;
+  box-shadow: var(--shadow-md);
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.15rem;
   transition: all var(--transition-fast);
 }
 
 .placeholder-card:hover {
   box-shadow: var(--shadow-lg);
-  transform: translateY(-2px);
-  border-color: var(--jpm-gold);
+  transform: translateY(-3px);
+  border-color: #FFFFFF;
 }
 
 .card-header {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
 }
 
 .card-icon {
-  width: 44px;
-  height: 44px;
+  width: 48px;
+  height: 48px;
   border-radius: var(--radius-md);
-  background-color: var(--bg-subtle);
-  color: var(--jpm-navy);
+  background: var(--bg-subtle);
+  color: var(--text-main);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .card-title {
-  font-size: 1.1rem;
-  font-weight: 700;
+  font-size: 1.15rem;
+  font-weight: 800;
   color: var(--text-main);
 }
 
 .card-desc {
-  font-size: 0.875rem;
+  font-size: 0.9rem;
   color: var(--text-secondary);
   line-height: 1.5;
 }
@@ -220,9 +228,9 @@
 .card-status-tag {
   align-self: flex-start;
   font-size: 0.725rem;
-  font-weight: 600;
-  padding: 4px 12px;
-  background-color: var(--bg-subtle);
-  color: var(--jpm-slate-muted);
+  font-weight: 700;
+  padding: 4px 14px;
+  background: var(--bg-subtle);
+  color: var(--text-muted);
   border-radius: var(--radius-full);
 }
