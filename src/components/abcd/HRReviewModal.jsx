@@ -44,9 +44,9 @@ export const HRReviewModal = ({ isOpen, onClose, item, work, onApprove, onReject
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content hr-review-modal" onClick={e => e.stopPropagation()}>
         {/* Header */}
-        <div className="modal-header" style={{ marginBottom: '1.25rem' }}>
+        <div className="modal-header">
           <h2 className="modal-title">Stage Verification Review</h2>
-          <button className="modal-close-btn" onClick={onClose}><X size={22} /></button>
+          <button className="modal-close-btn" onClick={onClose}><X size={20} /></button>
         </div>
 
         {/* Employee Info */}
@@ -55,8 +55,8 @@ export const HRReviewModal = ({ isOpen, onClose, item, work, onApprove, onReject
           <div className="hr-review-employee-card">
             <div className="hr-verif-avatar">{empName.split(' ').map(n => n[0]).join('')}</div>
             <div>
-              <div style={{ fontWeight: 700, color: 'var(--jpm-navy)' }}>{empName}</div>
-              <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>{empDept} · {item.employeeId}</div>
+              <div style={{ fontWeight: 800, color: 'var(--jpm-text)', fontSize: '1rem' }}>{empName}</div>
+              <div style={{ fontSize: '0.8rem', color: 'var(--jpm-text-secondary)' }}>{empDept} · {item.employeeId}</div>
             </div>
           </div>
         </div>
@@ -65,10 +65,10 @@ export const HRReviewModal = ({ isOpen, onClose, item, work, onApprove, onReject
         <div className="hr-review-section">
           <h3>Work</h3>
           <div className="hr-review-work-card">
-            <BookOpen size={20} color="var(--jpm-navy)" />
+            <BookOpen size={22} color="var(--jpm-primary)" />
             <div>
-              <div style={{ fontWeight: 700, color: 'var(--jpm-navy)' }}>{work?.name || 'Work'}</div>
-              <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>
+              <div style={{ fontWeight: 800, color: 'var(--jpm-text)', fontSize: '1rem' }}>{work?.name || 'Work'}</div>
+              <div style={{ fontSize: '0.8rem', color: 'var(--jpm-text-secondary)' }}>
                 {work?.department} {levelInfo ? `· ${levelInfo.label}` : ''}
               </div>
             </div>
@@ -78,17 +78,17 @@ export const HRReviewModal = ({ isOpen, onClose, item, work, onApprove, onReject
         {/* Current Stage */}
         <div className="hr-review-section">
           <h3>Current Stage</h3>
-          <div className="hr-review-stage-card" style={{ borderLeft: `4px solid ${meta?.color || 'var(--jpm-navy)'}` }}>
+          <div className="hr-review-stage-card" style={{ borderLeft: `4px solid ${meta?.color || 'var(--jpm-primary)'}` }}>
             <div>
-              <div style={{ fontWeight: 700, color: 'var(--jpm-navy)', fontSize: '1rem' }}>{meta?.fullLabel}</div>
-              <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginTop: '2px' }}>{meta?.description}</div>
+              <div style={{ fontWeight: 800, color: 'var(--jpm-text)', fontSize: '1rem' }}>{meta?.fullLabel}</div>
+              <div style={{ fontSize: '0.85rem', color: 'var(--jpm-text-secondary)', marginTop: '2px' }}>{meta?.description}</div>
               {item.stage?.submittedAt && (
-                <div style={{ fontSize: '0.775rem', color: 'var(--text-muted)', marginTop: '4px', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                  <Clock size={12} /> Submitted: {formatDate(item.stage.submittedAt)}
+                <div style={{ fontSize: '0.775rem', color: 'var(--jpm-muted)', marginTop: '6px', display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  <Clock size={14} /> Submitted: {formatDate(item.stage.submittedAt)}
                 </div>
               )}
               {item.stage?.employeeNotes && (
-                <div style={{ marginTop: '0.5rem', padding: '0.5rem 0.75rem', backgroundColor: 'var(--bg-subtle)', borderRadius: 'var(--radius-sm)', fontSize: '0.85rem', color: 'var(--text-main)' }}>
+                <div style={{ marginTop: '0.5rem', padding: '0.6rem 0.85rem', backgroundColor: 'var(--jpm-bg)', borderRadius: 'var(--radius-sm)', fontSize: '0.85rem', color: 'var(--jpm-text)', border: '1px solid var(--jpm-border-dark)' }}>
                   <strong>Employee Notes:</strong> {item.stage.employeeNotes}
                 </div>
               )}
@@ -106,9 +106,9 @@ export const HRReviewModal = ({ isOpen, onClose, item, work, onApprove, onReject
                 const m = STAGE_META[k];
                 return (
                   <div key={k} className="hr-review-history-item">
-                    <CheckCircle2 size={16} color={s?.status === STAGE_STATUS.COMPLETED ? 'var(--success-text)' : 'var(--text-muted)'} />
-                    <span style={{ fontWeight: 600, color: 'var(--jpm-navy)', flex: 1 }}>{m.fullLabel}</span>
-                    <span style={{ fontSize: '0.775rem', color: 'var(--text-muted)' }}>
+                    <CheckCircle2 size={16} color={s?.status === STAGE_STATUS.COMPLETED ? '#059669' : 'var(--jpm-muted)'} />
+                    <span style={{ fontWeight: 700, color: 'var(--jpm-text)', flex: 1 }}>{m.fullLabel}</span>
+                    <span style={{ fontSize: '0.775rem', color: 'var(--jpm-muted)' }}>
                       {s?.verifiedAt ? formatDate(s.verifiedAt) : '—'}
                     </span>
                   </div>
@@ -122,15 +122,24 @@ export const HRReviewModal = ({ isOpen, onClose, item, work, onApprove, onReject
         {isStageD && (
           <div className="hr-review-section">
             <h3>Performance Rating</h3>
-            <div className="hr-rating-group">
+            <div className="hr-rating-group" style={{ display: 'flex', gap: '8px' }}>
               {[1, 2, 3, 4, 5].map(n => (
                 <button
                   key={n}
                   className={`hr-rating-star ${rating >= n ? 'selected' : ''}`}
                   onClick={() => setRating(n)}
                   type="button"
+                  style={{
+                    padding: '6px 14px',
+                    borderRadius: 'var(--radius-full)',
+                    border: '1px solid var(--jpm-border-dark)',
+                    background: rating >= n ? 'var(--jpm-primary)' : 'var(--jpm-bg)',
+                    color: rating >= n ? '#FFFFFF' : 'var(--jpm-text)',
+                    fontWeight: 800,
+                    cursor: 'pointer'
+                  }}
                 >
-                  {n}
+                  ★ {n}
                 </button>
               ))}
             </div>
@@ -138,8 +147,8 @@ export const HRReviewModal = ({ isOpen, onClose, item, work, onApprove, onReject
         )}
 
         {/* HR Remarks */}
-        <div className="hr-review-section" style={{ borderBottom: 'none' }}>
-          <h3>HR Remarks {showError && <span style={{ color: 'var(--error-text)', fontWeight: 400, fontSize: '0.75rem' }}> — Required for rejection</span>}</h3>
+        <div className="hr-review-section">
+          <h3>HR Remarks {showError && <span style={{ color: '#E11D48', fontWeight: 400, fontSize: '0.75rem' }}> — Required for rejection</span>}</h3>
           <textarea
             className={`hr-review-textarea ${showError ? 'has-error' : ''}`}
             rows={3}
