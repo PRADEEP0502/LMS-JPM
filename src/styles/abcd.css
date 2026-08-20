@@ -341,17 +341,17 @@
 .abcd-connecting-line {
   position: absolute;
   top: 26px;
-  left: 40px;
-  right: 40px;
+  left: 60px;
+  right: 60px;
   height: 4px;
-  background-color: var(--border-light);
+  background-color: rgba(222, 218, 228, 0.7);
   border-radius: var(--radius-full);
   z-index: 1;
 }
 
 .abcd-connecting-fill {
   height: 100%;
-  background: var(--gradient-orb);
+  background: linear-gradient(90deg, var(--jpm-primary) 0%, var(--jpm-primary-secondary) 100%);
   border-radius: var(--radius-full);
   transition: width var(--transition-smooth);
 }
@@ -538,14 +538,12 @@
 
 /* Stage Detail Card */
 .abcd-stage-detail {
-  background: var(--bg-surface);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--border-glass);
-  border-top: 5px solid #FF5E7E;
-  border-radius: var(--radius-xl);
+  background: var(--jpm-surface-solid);
+  border: 1px solid var(--jpm-border-dark);
+  border-top: 5px solid var(--jpm-primary);
+  border-radius: var(--radius-lg);
   padding: 2.25rem;
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-card);
   margin-top: 1.75rem;
 }
 

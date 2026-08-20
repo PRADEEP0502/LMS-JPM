@@ -12,7 +12,7 @@ export const EmployeeWorkDetail = ({ assignment, work, abcdRecord, onBack, onSub
 
   if (!work || !abcdRecord) return null;
 
-  const levelInfo = WORK_LEVELS.find(l => l.id === work.level) || { label: work.level, badgeColor: '#0A2240' };
+  const levelInfo = WORK_LEVELS.find(l => l.id === work.level) || { label: work.level, badgeColor: 'var(--jpm-primary)' };
   const docCount = work.documents?.length || 0;
   const pointCount = work.learningPoints?.length || 0;
 
@@ -28,23 +28,23 @@ export const EmployeeWorkDetail = ({ assignment, work, abcdRecord, onBack, onSub
       </button>
 
       {/* Work header */}
-      <div className="work-detail-header">
-        <div className="work-detail-badges">
-          <span className="work-detail-badge">{work.department}</span>
-          <span className="work-detail-badge" style={{ backgroundColor: levelInfo.badgeColor, borderColor: levelInfo.badgeColor, color: '#FFFFFF' }}>{levelInfo.label}</span>
+      <div className="work-detail-header" style={{ display: 'flex', flexDirection: 'column', gap: '0.65rem', marginBottom: '2rem' }}>
+        <div className="work-detail-badges" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          <span className="work-dept-badge">{work.department}</span>
+          <span className="work-level-badge" style={{ backgroundColor: levelInfo.badgeColor, color: '#FFFFFF' }}>{levelInfo.label}</span>
         </div>
-        <h1>{work.name}</h1>
-        <p>{work.description || work.shortDescription}</p>
+        <h1 style={{ fontSize: '2.1rem', fontWeight: 800, color: 'var(--jpm-text)', margin: 0 }}>{work.name}</h1>
+        <p style={{ fontSize: '0.975rem', color: 'var(--jpm-text-secondary)', lineHeight: 1.6, margin: 0 }}>{work.description || work.shortDescription}</p>
 
-        <div className="work-detail-resources">
+        <div className="work-detail-resources" style={{ display: 'flex', alignItems: 'center', gap: '12px', marginTop: '0.25rem' }}>
           {work.trainingVideo && (
-            <span className="work-resource-pill"><Video size={14} /> Training Video ({work.trainingVideo.duration})</span>
+            <span className="resource-indicator"><Video size={14} color="var(--jpm-primary)" /> Training Video ({work.trainingVideo.duration})</span>
           )}
           {docCount > 0 && (
-            <span className="work-resource-pill"><FileText size={14} /> {docCount} Document{docCount > 1 ? 's' : ''}</span>
+            <span className="resource-indicator"><FileText size={14} color="var(--jpm-gold)" /> {docCount} Document{docCount > 1 ? 's' : ''}</span>
           )}
           {pointCount > 0 && (
-            <span className="work-resource-pill"><CheckCircle2 size={14} /> {pointCount} Learning Points</span>
+            <span className="resource-indicator"><CheckCircle2 size={14} color="var(--jpm-primary)" /> {pointCount} Learning Points</span>
           )}
         </div>
       </div>
