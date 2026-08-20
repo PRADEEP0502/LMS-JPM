@@ -1,0 +1,51 @@
+:root {
+  /* JPM Corporate Color Palette */
+  --jpm-navy-dark: #07192F;
+  --jpm-navy: #0A2240;
+  --jpm-navy-light: #16365C;
+  --jpm-gold: #C5A059;
+  --jpm-gold-hover: #B08B46;
+  --jpm-gold-light: #F9F5EC;
+  --jpm-slate: #334155;
+  --jpm-slate-muted: #64748B;
+
+  /* Neutrals */
+  --bg-primary: #F8FAFC;
+  --bg-surface: #FFFFFF;
+  --bg-subtle: #F1F5F9;
+  
+  /* Text */
+  --text-main: #0F172A;
+  --text-secondary: #475569;
+  --text-muted: #94A3B8;
+  --text-inverse: #FFFFFF;
+
+  /* Functional */
+  --border-light: #E2E8F0;
+  --border-focus: #C5A059;
+  --error-bg: #FEF2F2;
+  --error-text: #DC2626;
+  --error-border: #FCA5A5;
+  --success-bg: #F0FDF4;
+  --success-text: #166534;
+
+  /* Typography */
+  --font-family-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-family-heading: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+
+  /* Elevation */
+  --shadow-sm: 0 1px 3px rgba(10, 34, 64, 0.05);
+  --shadow-md: 0 4px 12px rgba(10, 34, 64, 0.08);
+  --shadow-lg: 0 12px 32px rgba(10, 34, 64, 0.12);
+  --shadow-xl: 0 20px 48px rgba(10, 34, 64, 0.16);
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}

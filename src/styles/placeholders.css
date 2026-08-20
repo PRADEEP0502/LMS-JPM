@@ -1,0 +1,213 @@
+/* Placeholders Layout */
+.app-header {
+  background-color: var(--jpm-navy);
+  color: var(--text-inverse);
+  padding: 0.85rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--shadow-md);
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.header-title {
+  font-family: var(--font-family-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: -0.01em;
+}
+
+.header-title span {
+  color: var(--jpm-gold);
+}
+
+.header-user-section {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.user-profile-summary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  background-color: var(--jpm-gold);
+  color: var(--jpm-navy-dark);
+  font-weight: 700;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-info-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-name {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.user-role-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.badge-employee {
+  background-color: rgba(59, 130, 246, 0.2);
+  color: #93C5FD;
+  border: 1px solid rgba(147, 197, 253, 0.3);
+}
+
+.badge-hr {
+  background-color: rgba(236, 72, 153, 0.2);
+  color: #F9A8D4;
+  border: 1px solid rgba(249, 168, 212, 0.3);
+}
+
+.badge-md {
+  background-color: rgba(212, 175, 55, 0.2);
+  color: #FDE68A;
+  border: 1px solid rgba(253, 230, 138, 0.3);
+}
+
+.logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.45rem 0.85rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-sm);
+  font-size: 0.825rem;
+  font-weight: 500;
+  transition: all var(--transition-fast);
+}
+
+.logout-btn:hover {
+  background-color: rgba(239, 68, 68, 0.2);
+  border-color: rgba(239, 68, 68, 0.4);
+  color: #FCA5A5;
+}
+
+/* Main Dashboard Body */
+.dashboard-container {
+  flex: 1;
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.step-status-banner {
+  background-color: var(--jpm-gold-light);
+  border: 1px solid var(--jpm-gold);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.banner-icon {
+  color: var(--jpm-gold-hover);
+  margin-top: 2px;
+}
+
+.banner-content h3 {
+  font-size: 1rem;
+  color: var(--jpm-navy);
+  margin-bottom: 0.25rem;
+}
+
+.banner-content p {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.placeholder-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.placeholder-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  opacity: 0.85;
+  transition: all var(--transition-fast);
+}
+
+.placeholder-card:hover {
+  opacity: 1;
+  box-shadow: var(--shadow-md);
+  border-color: var(--jpm-navy-light);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.card-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background-color: var(--bg-subtle);
+  color: var(--jpm-navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--jpm-navy);
+}
+
+.card-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.card-status-tag {
+  align-self: flex-start;
+  font-size: 0.725rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  background-color: var(--bg-subtle);
+  color: var(--jpm-slate-muted);
+  border-radius: var(--radius-full);
+}
