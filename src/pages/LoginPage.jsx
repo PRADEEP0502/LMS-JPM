@@ -3,7 +3,6 @@ import { User, Lock, Eye, EyeOff, ArrowRight, ShieldCheck, AlertCircle } from 'l
 import { useAuth } from '../context/AuthContext';
 import { JpmLogo } from '../components/common/JpmLogo';
 import { ForgotPasswordModal } from '../components/common/ForgotPasswordModal';
-import heroImage from '../assets/jpm_lms_hero.jpg';
 import '../styles/login.css';
 
 export const LoginPage = () => {
@@ -48,13 +47,7 @@ export const LoginPage = () => {
         </div>
 
         <div className="visual-content">
-          <div className="visual-image-wrapper">
-            <img 
-              src={heroImage} 
-              alt="J.P. Morgan Learning Management Platform" 
-              className="visual-hero-image" 
-            />
-          </div>
+          <div className="sense-orb" style={{ width: '84px', height: '84px', marginBottom: '2.5rem', boxShadow: '0 16px 36px rgba(255, 94, 126, 0.45)' }} />
           <h1 className="visual-title">
             Enterprise <span>Learning</span> & Excellence System
           </h1>

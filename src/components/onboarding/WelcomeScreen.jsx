@@ -1,6 +1,5 @@
 import React from 'react';
 import { ArrowRight, Sparkles, ShieldCheck } from 'lucide-react';
-import welcomeImg from '../../assets/onboarding_welcome.jpg';
 
 export const WelcomeScreen = ({ userName, onStartJourney }) => {
   const firstName = userName ? userName.split(' ')[0] : 'Employee';
@@ -13,8 +12,8 @@ export const WelcomeScreen = ({ userName, onStartJourney }) => {
           <span>J.P. Morgan Employee Gateway</span>
         </div>
 
-        <div className="welcome-hero-img-container">
-          <img src={welcomeImg} alt="Welcome to JPM" className="welcome-hero-img" />
+        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '2rem' }}>
+          <div className="sense-orb" style={{ width: '88px', height: '88px', boxShadow: '0 16px 36px rgba(255, 94, 126, 0.45)' }} />
         </div>
 
         <h1 className="welcome-title">
@@ -27,9 +26,9 @@ export const WelcomeScreen = ({ userName, onStartJourney }) => {
         <div style={{
           marginTop: '1.5rem',
           paddingTop: '1.5rem',
-          borderTop: '1px solid rgba(255,255,255,0.15)'
+          borderTop: '1px solid var(--border-light)'
         }}>
-          <h4 style={{ fontSize: '1.15rem', fontWeight: '700', color: '#FFFFFF', marginBottom: '0.5rem' }}>
+          <h4 style={{ fontSize: '1.15rem', fontWeight: '800', color: 'var(--text-main)', marginBottom: '0.5rem' }}>
             Your Onboarding Journey
           </h4>
           <p className="welcome-desc" style={{ marginBottom: '1.75rem' }}>
@@ -42,8 +41,8 @@ export const WelcomeScreen = ({ userName, onStartJourney }) => {
           </button>
         </div>
 
-        <div style={{ marginTop: '2rem', display: 'flex', justifyContent: 'center', gap: '8px', color: '#94A3B8', fontSize: '0.8rem' }}>
-          <ShieldCheck size={16} color="#C5A059" />
+        <div style={{ marginTop: '2rem', display: 'flex', justifyContent: 'center', gap: '8px', color: 'var(--text-muted)', fontSize: '0.8rem' }}>
+          <ShieldCheck size={16} color="#FF5E7E" />
           <span>Official J.P. Morgan Onboarding System</span>
         </div>
       </div>

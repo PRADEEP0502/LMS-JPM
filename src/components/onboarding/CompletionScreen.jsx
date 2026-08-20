@@ -1,6 +1,5 @@
 import React from 'react';
 import { Award, ArrowRight, ShieldCheck, CheckCircle2 } from 'lucide-react';
-import completeImg from '../../assets/onboarding_complete.jpg';
 
 export const CompletionScreen = ({ userName, completedAt, onFinish }) => {
   const formattedDate = completedAt
@@ -16,8 +15,8 @@ export const CompletionScreen = ({ userName, completedAt, onFinish }) => {
   return (
     <div className="completion-container">
       <div className="completion-card">
-        <div className="completion-img-wrapper">
-          <img src={completeImg} alt="Onboarding Completed" className="completion-img" />
+        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '2rem' }}>
+          <div className="sense-orb" style={{ width: '88px', height: '88px', boxShadow: '0 16px 36px rgba(255, 94, 126, 0.45)' }} />
         </div>
 
         <div style={{
@@ -25,34 +24,35 @@ export const CompletionScreen = ({ userName, completedAt, onFinish }) => {
           alignItems: 'center',
           gap: '8px',
           padding: '6px 16px',
-          backgroundColor: 'var(--jpm-gold-light)',
-          border: '1px solid var(--jpm-gold)',
+          backgroundColor: '#D1FAE5',
+          border: '1px solid #A7F3D0',
           borderRadius: 'var(--radius-full)',
-          color: 'var(--jpm-navy)',
+          color: '#059669',
           fontSize: '0.85rem',
-          fontWeight: '700',
+          fontWeight: '800',
           marginBottom: '1rem'
         }}>
-          <CheckCircle2 size={18} color="#C5A059" /> 100% Onboarding Complete
+          <CheckCircle2 size={18} color="#059669" /> 100% Onboarding Complete
         </div>
 
-        <h1 style={{ fontSize: '2.25rem', fontWeight: '800', color: 'var(--jpm-navy)', marginBottom: '0.5rem' }}>
+        <h1 style={{ fontSize: '2.25rem', fontWeight: '800', color: 'var(--text-main)', marginBottom: '0.5rem' }}>
           🎉 Welcome to JPM!
         </h1>
-        <h3 style={{ fontSize: '1.2rem', color: 'var(--jpm-gold-hover)', fontWeight: '600', marginBottom: '1rem' }}>
+        <h3 style={{ fontSize: '1.2rem', color: '#8E2DE2', fontWeight: '800', marginBottom: '1rem' }}>
           Your onboarding is complete.
         </h3>
 
-        <p style={{ fontSize: '0.925rem', color: 'var(--text-secondary)', lineHeight: 1.6, maxWidth: '500px', margin: '0 auto 1.5rem auto' }}>
+        <p style={{ fontSize: '0.95rem', color: 'var(--text-secondary)', lineHeight: 1.6, maxWidth: '500px', margin: '0 auto 1.5rem auto' }}>
           All 5 onboarding stages—Profile Verification, Official Document Check, Manager Orientation, IT Systems Setup, and Employee Declaration—have been verified.
         </p>
 
         <div style={{
           padding: '1rem',
-          backgroundColor: 'var(--bg-primary)',
-          borderRadius: 'var(--radius-md)',
+          backgroundColor: 'rgba(255, 255, 255, 0.7)',
+          border: '1px solid var(--border-glass)',
+          borderRadius: 'var(--radius-lg)',
           marginBottom: '2rem',
-          fontSize: '0.825rem',
+          fontSize: '0.85rem',
           color: 'var(--text-secondary)',
           display: 'flex',
           flexDirection: 'column',
@@ -61,7 +61,7 @@ export const CompletionScreen = ({ userName, completedAt, onFinish }) => {
         }}>
           <div><strong>Completion Timestamp:</strong> {formattedDate}</div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-            <ShieldCheck size={16} color="#166534" /> Recorded in JPM HR Onboarding System
+            <ShieldCheck size={16} color="#059669" /> Recorded in JPM HR Onboarding System
           </div>
         </div>
 
