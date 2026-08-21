@@ -44,7 +44,7 @@ export const AbcdJourneyTrack = ({ abcdRecord, onSelectStage, selectedStage }) =
             A &rarr; B &rarr; C &rarr; D Progression
           </h2>
         </div>
-        <div className="jpm-badge-purple" style={{ fontSize: '0.85rem', padding: '6px 16px' }}>
+        <div className="jpm-badge-peach" style={{ fontSize: '0.85rem', padding: '6px 16px' }}>
           {fillPercent}% Completed
         </div>
       </div>

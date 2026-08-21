@@ -16,7 +16,7 @@ export const CompletionScreen = ({ userName, completedAt, onFinish }) => {
     <div className="completion-container">
       <div className="completion-card">
         <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '2rem' }}>
-          <div className="sense-orb" style={{ width: '88px', height: '88px', boxShadow: '0 16px 36px rgba(255, 94, 126, 0.45)' }} />
+          <div style={{ width: '88px', height: '88px', borderRadius: '50%', background: 'linear-gradient(135deg, #FFB399 0%, #B8A7EA 100%)', boxShadow: '0 16px 36px rgba(255, 122, 89, 0.3)' }} />
         </div>
 
         <div style={{
@@ -24,21 +24,21 @@ export const CompletionScreen = ({ userName, completedAt, onFinish }) => {
           alignItems: 'center',
           gap: '8px',
           padding: '6px 16px',
-          backgroundColor: '#D1FAE5',
+          backgroundColor: '#E8F8F2',
           border: '1px solid #A7F3D0',
           borderRadius: 'var(--radius-full)',
-          color: '#059669',
+          color: '#0E9F6E',
           fontSize: '0.85rem',
           fontWeight: '800',
           marginBottom: '1rem'
         }}>
-          <CheckCircle2 size={18} color="#059669" /> 100% Onboarding Complete
+          <CheckCircle2 size={18} color="#0E9F6E" /> 100% Onboarding Complete
         </div>
 
-        <h1 style={{ fontSize: '2.25rem', fontWeight: '800', color: 'var(--text-main)', marginBottom: '0.5rem' }}>
+        <h1 style={{ fontSize: '2.25rem', fontWeight: '800', color: 'var(--jpm-text)', marginBottom: '0.5rem' }}>
           🎉 Welcome to JPM!
         </h1>
-        <h3 style={{ fontSize: '1.2rem', color: '#8E2DE2', fontWeight: '800', marginBottom: '1rem' }}>
+        <h3 style={{ fontSize: '1.2rem', color: 'var(--jpm-primary)', fontWeight: '800', marginBottom: '1rem' }}>
           Your onboarding is complete.
         </h3>
 

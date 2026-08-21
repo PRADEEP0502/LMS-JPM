@@ -91,7 +91,7 @@
   background: var(--jpm-primary-soft);
   color: var(--jpm-primary);
   font-weight: 700;
-  border-color: rgba(91, 60, 196, 0.15);
+  border-color: rgba(255, 122, 89, 0.2);
 }
 
 .logout-nav-btn:hover {

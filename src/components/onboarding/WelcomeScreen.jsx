@@ -13,22 +13,22 @@ export const WelcomeScreen = ({ userName, onStartJourney }) => {
         </div>
 
         <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '2rem' }}>
-          <div className="sense-orb" style={{ width: '88px', height: '88px', boxShadow: '0 16px 36px rgba(255, 94, 126, 0.45)' }} />
+          <div style={{ width: '88px', height: '88px', borderRadius: '50%', background: 'linear-gradient(135deg, #FFB399 0%, #B8A7EA 100%)', boxShadow: '0 16px 36px rgba(255, 122, 89, 0.3)' }} />
         </div>
 
         <h1 className="welcome-title">
           Welcome to JPM, {firstName} 👋
         </h1>
-        <h3 className="welcome-subtitle">
+        <h3 className="welcome-subtitle" style={{ color: 'var(--jpm-primary)' }}>
           Your journey starts here.
         </h3>
 
         <div style={{
           marginTop: '1.5rem',
           paddingTop: '1.5rem',
-          borderTop: '1px solid var(--border-light)'
+          borderTop: '1px solid var(--jpm-border-dark)'
         }}>
-          <h4 style={{ fontSize: '1.15rem', fontWeight: '800', color: 'var(--text-main)', marginBottom: '0.5rem' }}>
+          <h4 style={{ fontSize: '1.15rem', fontWeight: '800', color: 'var(--jpm-text)', marginBottom: '0.5rem' }}>
             Your Onboarding Journey
           </h4>
           <p className="welcome-desc" style={{ marginBottom: '1.75rem' }}>
@@ -41,8 +41,8 @@ export const WelcomeScreen = ({ userName, onStartJourney }) => {
           </button>
         </div>
 
-        <div style={{ marginTop: '2rem', display: 'flex', justifyContent: 'center', gap: '8px', color: 'var(--text-muted)', fontSize: '0.8rem' }}>
-          <ShieldCheck size={16} color="#FF5E7E" />
+        <div style={{ marginTop: '2rem', display: 'flex', justifyContent: 'center', gap: '8px', color: 'var(--jpm-muted)', fontSize: '0.8rem' }}>
+          <ShieldCheck size={16} color="var(--jpm-primary)" />
           <span>Official Junior Processing Mill Onboarding System</span>
         </div>
       </div>

@@ -16,9 +16,7 @@ export const LoginPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!userId.trim() || !password.trim()) {
-      return;
-    }
+    if (!userId.trim() || !password.trim()) return;
 
     setLoading(true);
     try {
@@ -30,7 +28,6 @@ export const LoginPage = () => {
     }
   };
 
-  // Quick autofill helper for testing demo credentials
   const handleQuickLogin = (demoId, demoPass) => {
     setUserId(demoId);
     setPassword(demoPass);
@@ -39,65 +36,57 @@ export const LoginPage = () => {
 
   return (
     <div className="login-page-container">
-      {/* Left Visual Sense Panel */}
-      <div className="login-visual-panel">
-        <div className="visual-brand-header">
-          <JpmLogo size={36} />
-          <span className="brand-badge">Junior Processing Mill &bull; JPM LMS</span>
-        </div>
-
-        <div className="visual-content">
-          <div className="sense-orb" style={{ width: '84px', height: '84px', marginBottom: '2.5rem', boxShadow: '0 16px 36px rgba(255, 94, 126, 0.45)' }} />
-          <h1 className="visual-title">
-            Enterprise <span>Learning</span> & Excellence System
-          </h1>
-          <p className="visual-description">
-            Empowering Junior Processing Mill teams with structured learning pathways, policy compliance, and performance milestones.
-          </p>
-        </div>
-
-        <div className="visual-footer">
-          <span>&copy; {new Date().getFullYear()} Junior Processing Mill. All rights reserved.</span>
-          <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-            <ShieldCheck size={14} color="#FF5E7E" /> Encrypted Gateway
-          </span>
-        </div>
-      </div>
-
-      {/* Right Sense Form Panel */}
-      <div className="login-form-panel">
-        <div className="login-form-container">
-          <div className="login-header">
-            <div className="login-logo-row">
-              <JpmLogo size={40} />
-              <div className="jpm-logo-text">
-                JPM <span className="jpm-logo-tag">LMS</span>
-              </div>
+      <div className="login-glass-card">
+        {/* Left Brand Panel */}
+        <div className="login-brand-panel">
+          <div className="login-brand-header">
+            <JpmLogo size={36} />
+            <div className="login-brand-title">
+              JPM <span>LMS</span>
             </div>
-            <h2 className="login-title">Sign In to JPM LMS</h2>
-            <p className="login-subtitle">
-              Enter your corporate User ID and Password to access your portal.
+          </div>
+
+          <div className="login-brand-body">
+            <span className="login-hero-tag">Junior Processing Mill</span>
+            <h1 className="login-hero-heading">
+              Enterprise <span>Learning</span> & Excellence System
+            </h1>
+            <p className="login-hero-desc">
+              Empowering Junior Processing Mill teams with structured learning pathways, policy compliance, and performance milestones.
             </p>
           </div>
 
+          <div className="login-brand-footer">
+            <span>&copy; {new Date().getFullYear()} Junior Processing Mill</span>
+            <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <ShieldCheck size={14} color="var(--jpm-primary)" /> Encrypted Gateway
+            </span>
+          </div>
+        </div>
+
+        {/* Right Form Panel */}
+        <div className="login-form-panel">
+          <div className="login-form-header">
+            <h2>Sign In to JPM LMS</h2>
+            <p>Enter your corporate User ID and Password to access your portal.</p>
+          </div>
+
           {error && (
-            <div className="error-banner" style={{ marginBottom: '1.25rem' }}>
-              <AlertCircle size={18} />
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '0.8rem 1rem', background: 'var(--error-bg)', color: 'var(--error-text)', borderRadius: 'var(--radius-sm)', fontSize: '0.875rem', marginBottom: '1.25rem' }}>
+              <AlertCircle size={16} />
               <span>{error}</span>
             </div>
           )}
 
           <form onSubmit={handleSubmit} className="login-form">
             <div className="form-group">
-              <label htmlFor="userId" className="form-label">User ID</label>
-              <div className="input-wrapper">
-                <span className="input-icon-left">
-                  <User size={18} />
-                </span>
+              <label htmlFor="userId">User ID</label>
+              <div className="input-capsule-wrapper">
+                <User size={18} className="input-icon" />
                 <input
                   id="userId"
                   type="text"
-                  className="form-input"
+                  className="input-capsule"
                   placeholder="Enter User ID (e.g. emp101)"
                   value={userId}
                   onChange={(e) => {
@@ -111,24 +100,22 @@ export const LoginPage = () => {
             </div>
 
             <div className="form-group">
-              <div className="form-label">
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <label htmlFor="password">Password</label>
                 <button
                   type="button"
-                  className="forgot-password-link"
+                  style={{ background: 'none', border: 'none', color: 'var(--jpm-primary)', fontSize: '0.8rem', fontWeight: 700, cursor: 'pointer' }}
                   onClick={() => setIsForgotPasswordOpen(true)}
                 >
                   Forgot Password?
                 </button>
               </div>
-              <div className="input-wrapper">
-                <span className="input-icon-left">
-                  <Lock size={18} />
-                </span>
+              <div className="input-capsule-wrapper">
+                <Lock size={18} className="input-icon" />
                 <input
                   id="password"
                   type={showPassword ? 'text' : 'password'}
-                  className="form-input"
+                  className="input-capsule"
                   placeholder="Enter Password"
                   value={password}
                   onChange={(e) => {
@@ -140,7 +127,7 @@ export const LoginPage = () => {
                 />
                 <button
                   type="button"
-                  className="password-toggle-btn"
+                  style={{ position: 'absolute', right: '1.15rem', background: 'none', border: 'none', color: 'var(--jpm-muted)', cursor: 'pointer' }}
                   onClick={() => setShowPassword(!showPassword)}
                   title={showPassword ? 'Hide password' : 'Show password'}
                 >
@@ -149,7 +136,7 @@ export const LoginPage = () => {
               </div>
             </div>
 
-            <button type="submit" className="submit-btn" disabled={loading}>
+            <button type="submit" className="login-submit-btn" disabled={loading}>
               {loading ? (
                 <span>Authenticating...</span>
               ) : (
@@ -161,34 +148,22 @@ export const LoginPage = () => {
             </button>
           </form>
 
-          {/* Quick Demo Accounts Bar */}
+          {/* Quick Demo Accounts */}
           <div className="demo-accounts-card">
             <div className="demo-title">DEMO ACCOUNTS (TESTING)</div>
-            <div className="demo-chips">
-              <div
-                className="demo-chip"
-                onClick={() => handleQuickLogin('emp101', 'password123')}
-                title="Click to autofill Employee credentials"
-              >
+            <div className="demo-grid">
+              <button className="demo-btn" onClick={() => handleQuickLogin('emp101', 'password123')} type="button">
                 <span className="demo-role">Employee</span>
                 <span className="demo-id">emp101</span>
-              </div>
-              <div
-                className="demo-chip"
-                onClick={() => handleQuickLogin('hr201', 'password123')}
-                title="Click to autofill HR credentials"
-              >
+              </button>
+              <button className="demo-btn" onClick={() => handleQuickLogin('hr201', 'password123')} type="button">
                 <span className="demo-role">HR</span>
                 <span className="demo-id">hr201</span>
-              </div>
-              <div
-                className="demo-chip"
-                onClick={() => handleQuickLogin('md301', 'password123')}
-                title="Click to autofill MD credentials"
-              >
+              </button>
+              <button className="demo-btn" onClick={() => handleQuickLogin('md301', 'password123')} type="button">
                 <span className="demo-role">MD</span>
                 <span className="demo-id">md301</span>
-              </div>
+              </button>
             </div>
           </div>
         </div>

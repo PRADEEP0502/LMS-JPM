@@ -1,62 +1,65 @@
 /* ============================================
-   JPM LMS — PREMIUM SOFT GLASS DESIGN SYSTEM
+   JPM LMS — WARM PEACH & LAVENDER SOFT GLASS DESIGN SYSTEM
    ============================================ */
 
 :root {
-  /* Primary Soft Glass Colors */
-  --jpm-bg: #F3F3F1;
-  --jpm-bg-gradient: linear-gradient(135deg, #F3F3F1 0%, #EFEFEF 40%, #F5F2F9 70%, #F2EFF6 100%);
-  --jpm-surface: rgba(255, 255, 255, 0.76);
-  --jpm-surface-solid: #FFFFFF;
-  --jpm-surface-subtle: rgba(246, 245, 248, 0.7);
-  --jpm-dark-panel: #1E1A2B;
+  /* Warm Cream / Off-white Base Background */
+  --jpm-bg: #FAF7F2;
+  --jpm-bg-mesh: radial-gradient(at 10% 15%, #FFEAE3 0px, transparent 50%),
+                 radial-gradient(at 90% 15%, #EAE4FA 0px, transparent 50%),
+                 radial-gradient(at 50% 85%, #FFF2EC 0px, transparent 60%),
+                 #FAF7F2;
 
-  /* Refined JPM Accents */
-  --jpm-primary: #5B3CC4;
-  --jpm-primary-hover: #4C2FB3;
-  --jpm-primary-secondary: #7C5CE6;
-  --jpm-primary-soft: #EDE7FF;
-  --jpm-gold: #C8A96B;
-  --jpm-gold-soft: #FAF4E8;
+  /* Glass Surface Tokens */
+  --jpm-surface: rgba(255, 255, 255, 0.72);
+  --jpm-surface-solid: rgba(255, 255, 255, 0.85);
+  --jpm-border: rgba(255, 255, 255, 0.9);
+  --jpm-border-dark: rgba(230, 220, 210, 0.55);
 
-  /* Typography & Neutral Colors */
-  --jpm-text: #252525;
-  --jpm-text-secondary: #6B6B6B;
-  --jpm-muted: #999999;
-  --jpm-inverse: #FFFFFF;
+  /* Primary Accents: Warm Peach & Muted Lavender */
+  --jpm-primary: #FF7A59;
+  --jpm-primary-hover: #F06543;
+  --jpm-primary-soft: #FFEFEA;
+  --jpm-primary-secondary: #FF9E85;
 
-  /* Functional Status Colors */
-  --jpm-border: rgba(255, 255, 255, 0.7);
-  --jpm-border-dark: rgba(222, 218, 228, 0.75);
-  --error-bg: rgba(254, 242, 242, 0.9);
-  --error-text: #E11D48;
-  --error-border: #FECDD3;
-  --success-bg: rgba(236, 253, 245, 0.9);
-  --success-text: #059669;
-  --success-border: #A7F3D0;
-  --warning-bg: rgba(254, 252, 232, 0.9);
-  --warning-text: #D97706;
-  --warning-border: #FDE68A;
+  --jpm-purple: #8B72E6;
+  --jpm-purple-soft: #F0ECFC;
 
-  /* Typography Fonts */
-  --font-family-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-family-heading: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+  --jpm-gold: #E5A855;
+  --jpm-gold-soft: #FFF6E8;
 
-  /* Radius Tokens */
-  --radius-sm: 14px;
-  --radius-md: 20px;
-  --radius-lg: 28px;
-  --radius-xl: 36px;
+  /* Warm Charcoal Typography Colors */
+  --jpm-text: #2A2523;
+  --jpm-text-secondary: #6E6763;
+  --jpm-muted: #A59E99;
+
+  /* Large Corner Radius Tokens */
+  --radius-sm: 16px;
+  --radius-md: 24px;
+  --radius-lg: 32px;
+  --radius-xl: 40px;
   --radius-full: 9999px;
 
-  /* Glass & Shadows */
-  --shadow-soft: 0 10px 35px rgba(0, 0, 0, 0.05), 0 2px 8px rgba(0, 0, 0, 0.02);
-  --shadow-hover: 0 16px 40px rgba(91, 60, 196, 0.12), 0 4px 12px rgba(0, 0, 0, 0.03);
-  --shadow-card: 0 12px 30px rgba(160, 150, 180, 0.08);
-  --glass-blur: blur(18px);
+  /* Ultra-Soft Warm Shadows */
+  --shadow-soft: 0 10px 30px rgba(180, 160, 150, 0.08);
+  --shadow-card: 0 14px 40px rgba(160, 140, 130, 0.12);
+  --shadow-hover: 0 20px 50px rgba(160, 140, 130, 0.18);
+  --glass-blur: blur(24px);
 
-  /* Transitions */
-  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  /* Clean Typography */
+  --font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-family-heading: 'Plus Jakarta Sans', 'Inter', sans-serif;
+
+  /* Subtle Animations */
+  --transition-fast: 200ms ease;
+  --transition-normal: 300ms cubic-bezier(0.16, 1, 0.3, 1);
   --transition-smooth: 400ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Status Colors */
+  --success-bg: #E8F8F2;
+  --success-text: #0E9F6E;
+  --warning-bg: #FFF8E6;
+  --warning-text: #D97706;
+  --error-bg: #FFEFEF;
+  --error-text: #E03E3E;
 }

@@ -1,94 +1,98 @@
-@import './variables.css';
+/* ============================================
+   JPM LMS — GLOBAL STYLES (WARM PEACH & LAVENDER SOFT GLASS)
+   ============================================ */
 
-*, *::before, *::after {
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-html, body {
-  min-height: 100vh;
-  width: 100%;
-  font-family: var(--font-family-sans);
-  background-color: var(--jpm-bg);
-  background: var(--jpm-bg-gradient);
+body {
+  font-family: var(--font-family-base);
+  background: var(--jpm-bg-mesh);
   background-attachment: fixed;
   color: var(--jpm-text);
+  min-height: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
+  overflow-x: hidden;
 }
 
-#root {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+/* Subtle Page Animations (No Flashy or Heavy Bouncing) */
+.page-fade-in {
+  animation: softFadeIn var(--transition-smooth);
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-family-heading);
-  color: var(--jpm-text);
-  letter-spacing: -0.02em;
+@keyframes softFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-button {
-  font-family: inherit;
-  cursor: pointer;
-  border: none;
-  background: none;
-}
-
-input, textarea, select {
-  font-family: inherit;
-}
-
-a {
-  color: var(--jpm-primary);
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-/* Glass Utility Classes */
+/* Soft Glass Panel Utility */
 .glass-panel {
-  background: var(--jpm-surface);
+  background: var(--jpm-surface-solid);
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--jpm-border);
+  border: 1px solid var(--jpm-border-dark);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-soft);
+  box-shadow: var(--shadow-card);
+  transition: all var(--transition-normal);
 }
 
+/* Soft Glass Card Utility */
 .glass-card {
   background: var(--jpm-surface-solid);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--jpm-border-dark);
   border-radius: var(--radius-md);
-  box-shadow: var(--shadow-card);
+  box-shadow: var(--shadow-soft);
   transition: all var(--transition-normal);
 }
 
 .glass-card:hover {
   box-shadow: var(--shadow-hover);
   transform: translateY(-2px);
+  border-color: var(--jpm-primary);
 }
 
-.jpm-badge-gold {
-  background-color: var(--jpm-gold-soft);
-  color: var(--jpm-gold);
-  border: 1px solid var(--jpm-gold);
+/* Pill Badges */
+.jpm-badge-peach {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 14px;
   border-radius: var(--radius-full);
-  font-weight: 700;
-  padding: 4px 12px;
+  background: var(--jpm-primary-soft);
+  color: var(--jpm-primary);
   font-size: 0.75rem;
+  font-weight: 800;
+  border: 1px solid rgba(255, 122, 89, 0.2);
 }
 
 .jpm-badge-purple {
-  background-color: var(--jpm-primary-soft);
-  color: var(--jpm-primary);
-  border: 1px solid rgba(91, 60, 196, 0.2);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 14px;
   border-radius: var(--radius-full);
-  font-weight: 700;
-  padding: 4px 12px;
+  background: var(--jpm-purple-soft);
+  color: var(--jpm-purple);
   font-size: 0.75rem;
+  font-weight: 800;
+  border: 1px solid rgba(139, 114, 230, 0.2);
+}
+
+/* Buttons Reset & Base Styling */
+button {
+  font-family: var(--font-family-heading);
+  cursor: pointer;
 }
