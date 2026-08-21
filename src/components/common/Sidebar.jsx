@@ -34,10 +34,7 @@ export const Sidebar = ({ activeTab, onSelectTab, role = 'EMPLOYEE' }) => {
   return (
     <aside className="jpm-sidebar">
       <div className="sidebar-brand">
-        <JpmLogo size={36} />
-        <div className="sidebar-brand-text">
-          JPM <span>LMS</span>
-        </div>
+        <JpmLogo size={38} showText={true} />
       </div>
 
       <div className="sidebar-section-label">GENERAL</div>

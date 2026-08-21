@@ -177,7 +177,9 @@ export const EmployeeHome = () => {
       <main className="app-main-content">
         {/* Minimal Floating Top Bar */}
         <header className="jpm-topbar">
-          <div className="topbar-left">JPM LMS</div>
+          <div className="topbar-left" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <JpmLogo size={32} showText={true} />
+          </div>
           <div className="topbar-right">
             <button className="topbar-icon-btn" title="Re-test Onboarding" onClick={handleResetOnboarding}>
               <RotateCcw size={16} />

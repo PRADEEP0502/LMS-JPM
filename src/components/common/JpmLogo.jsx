@@ -1,27 +1,34 @@
 import React from 'react';
 
-export const JpmLogo = ({ size = 32, variant = 'default' }) => {
+export const JpmLogo = ({ size = 36, showText = false }) => {
   return (
-    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px' }}>
+    <div style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', verticalAlign: 'middle' }}>
       <div
         style={{
           width: size,
           height: size,
-          borderRadius: '12px',
-          background: 'linear-gradient(135deg, #5B3CC4 0%, #7C5CE6 100%)',
-          boxShadow: '0 6px 16px rgba(91, 60, 196, 0.3)',
+          borderRadius: size > 32 ? '14px' : '10px',
+          background: 'linear-gradient(135deg, #FF7A59 0%, #8B72E6 100%)',
+          boxShadow: '0 8px 20px rgba(255, 122, 89, 0.35)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           color: '#FFFFFF',
           fontWeight: 800,
-          fontSize: size * 0.45,
+          fontSize: Math.round(size * 0.48),
           fontFamily: 'var(--font-family-heading)',
-          flexShrink: 0
+          flexShrink: 0,
+          letterSpacing: '-0.02em',
+          userSelect: 'none'
         }}
       >
         J
       </div>
+      {showText && (
+        <span style={{ fontSize: '1.25rem', fontWeight: 800, color: 'var(--jpm-text)', fontFamily: 'var(--font-family-heading)', letterSpacing: '-0.02em' }}>
+          JPM <span style={{ color: 'var(--jpm-primary)' }}>LMS</span>
+        </span>
+      )}
     </div>
   );
 };

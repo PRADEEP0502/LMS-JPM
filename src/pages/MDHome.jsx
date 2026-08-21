@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { Sidebar } from '../components/common/Sidebar';
+import { JpmLogo } from '../components/common/JpmLogo';
 import { Crown, CheckCircle2, Bell, Users, BookOpen, Layers, ShieldCheck, Clock, Award, Activity, Building } from 'lucide-react';
 import { workMasterService } from '../modules/work-master/workMasterService';
 import { abcdService } from '../modules/abcd/abcdService';
@@ -39,7 +40,10 @@ export const MDHome = () => {
       <main className="app-main-content">
         {/* Topbar */}
         <header className="jpm-topbar">
-          <div className="topbar-left">Junior Processing Mill &bull; Executive Portal</div>
+          <div className="topbar-left" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <JpmLogo size={32} />
+            <span>Junior Processing Mill &bull; Executive Portal</span>
+          </div>
           <div className="topbar-right">
             <button className="topbar-icon-btn" title="Notifications" onClick={() => alert('Executive alert: System status optimal.')}>
               <Bell size={16} />

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { Sidebar } from '../components/common/Sidebar';
 import { LogOut, BookOpen, ShieldCheck, Users, Bell } from 'lucide-react';
+import { JpmLogo } from '../components/common/JpmLogo';
 import { WorkMasterList } from '../components/work-master/WorkMasterList';
 import { HRAbcdVerification } from '../components/abcd/HRAbcdVerification';
 import { HRReviewModal } from '../components/abcd/HRReviewModal';
@@ -78,7 +79,10 @@ export const HRHome = () => {
       <main className="app-main-content">
         {/* Minimal Floating Top Bar */}
         <header className="jpm-topbar">
-          <div className="topbar-left">JPM LMS HR Administration</div>
+          <div className="topbar-left" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <JpmLogo size={32} />
+            <span>Junior Processing Mill &bull; HR Admin</span>
+          </div>
           <div className="topbar-right">
             <button className="topbar-icon-btn" title="Notifications" onClick={() => alert('HR Notifications up to date.')}>
               <Bell size={16} />
