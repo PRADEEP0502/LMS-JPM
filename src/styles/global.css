@@ -2,6 +2,8 @@
    JPM LMS — GLOBAL STYLES (WARM PEACH & LAVENDER SOFT GLASS)
    ============================================ */
 
+@import './variables.css';
+
 * {
   box-sizing: border-box;
   margin: 0;
