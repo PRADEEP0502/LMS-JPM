@@ -14,10 +14,8 @@
 /* Floating Soft Sidebar (#9 Requirement) */
 .jpm-sidebar {
   width: 260px;
-  background: var(--jpm-surface);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--jpm-border);
+  background: var(--jpm-surface-solid);
+  border: 1px solid var(--jpm-border-dark);
   border-radius: var(--radius-lg);
   padding: 2rem 1.25rem;
   display: flex;
