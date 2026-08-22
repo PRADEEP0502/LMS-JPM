@@ -8,7 +8,7 @@
   padding: 0;
 }
 
-body {
+body, input, button, select, textarea {
   font-family: var(--font-family-base);
   background: var(--jpm-bg-mesh);
   background-attachment: fixed;
@@ -18,6 +18,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.5;
   overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6, .sidebar-brand-text, .modal-title {
+  font-family: var(--font-family-heading);
 }
 
 /* Subtle Page Animations (No Flashy or Heavy Bouncing) */
