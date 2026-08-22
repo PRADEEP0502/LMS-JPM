@@ -11,27 +11,27 @@
                  #FAF7F2;
 
   /* Glass Surface Tokens */
-  --jpm-surface: rgba(255, 255, 255, 0.72);
-  --jpm-surface-solid: rgba(255, 255, 255, 0.85);
-  --jpm-border: rgba(255, 255, 255, 0.9);
-  --jpm-border-dark: rgba(230, 220, 210, 0.55);
+  --jpm-surface: rgba(255, 255, 255, 0.85);
+  --jpm-surface-solid: rgba(255, 255, 255, 0.95);
+  --jpm-border: rgba(255, 255, 255, 0.95);
+  --jpm-border-dark: rgba(215, 205, 195, 0.7);
 
   /* Primary Accents: Warm Peach & Muted Lavender */
-  --jpm-primary: #FF7A59;
-  --jpm-primary-hover: #F06543;
+  --jpm-primary: #FF6B4A;
+  --jpm-primary-hover: #E85535;
   --jpm-primary-soft: #FFEFEA;
   --jpm-primary-secondary: #FF9E85;
 
-  --jpm-purple: #8B72E6;
+  --jpm-purple: #7C5CE6;
   --jpm-purple-soft: #F0ECFC;
 
-  --jpm-gold: #E5A855;
+  --jpm-gold: #D98E2B;
   --jpm-gold-soft: #FFF6E8;
 
-  /* Warm Charcoal Typography Colors */
-  --jpm-text: #2A2523;
-  --jpm-text-secondary: #6E6763;
-  --jpm-muted: #A59E99;
+  /* High-Contrast Charcoal Typography Colors (100% Crisp Visibility) */
+  --jpm-text: #1C1917;
+  --jpm-text-secondary: #44403C;
+  --jpm-muted: #78716C;
 
   /* Large Corner Radius Tokens */
   --radius-sm: 16px;
@@ -46,9 +46,9 @@
   --shadow-hover: 0 20px 50px rgba(160, 140, 130, 0.18);
   --glass-blur: blur(24px);
 
-  /* San Francisco (SF Pro) Typeface Family */
-  --font-family-base: 'SF Pro Text', 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  --font-family-heading: 'SF Pro Display', 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  /* San Francisco / Apple System / Plus Jakarta / Inter Font Family Stack */
+  --font-family-base: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Plus Jakarta Sans", "Inter", "Segoe UI", Roboto, sans-serif;
+  --font-family-heading: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Plus Jakarta Sans", "Inter", "Segoe UI", Roboto, sans-serif;
 
   /* Subtle Animations */
   --transition-fast: 200ms ease;
@@ -57,9 +57,9 @@
 
   /* Status Colors */
   --success-bg: #E8F8F2;
-  --success-text: #0E9F6E;
+  --success-text: #057A55;
   --warning-bg: #FFF8E6;
-  --warning-text: #D97706;
+  --warning-text: #B45309;
   --error-bg: #FFEFEF;
-  --error-text: #E03E3E;
+  --error-text: #C81E1E;
 }
