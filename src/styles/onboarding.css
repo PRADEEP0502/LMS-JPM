@@ -6,7 +6,7 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: var(--jpm-bg-gradient);
+  background: var(--jpm-bg-mesh);
   background-attachment: fixed;
 }
 

@@ -62,4 +62,13 @@
   --warning-text: #B45309;
   --error-bg: #FFEFEF;
   --error-text: #C81E1E;
+
+  /* Legacy Variable Aliases for Backward Compatibility */
+  --jpm-bg-gradient: var(--jpm-bg-mesh);
+  --jpm-navy: var(--jpm-text);
+  --text-main: var(--jpm-text);
+  --text-secondary: var(--jpm-text-secondary);
+  --text-muted: var(--jpm-muted);
+  --border-light: var(--jpm-border-dark);
+  --border-glass: var(--jpm-border-dark);
 }
